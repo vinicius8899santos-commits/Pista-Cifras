@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1ª Estrutura - Harpa</title>
+    <link rel="stylesheet" href="styleHarpa.css">
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="indexMenuHarpa.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+  <h1>1ª Estrutura</h1>
+  <h2>Harpa Cristã</h2>
+
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">C</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Estrofe</h3>
+<pre class="cifra">
+C  -  C7  -  F  -  Fm  -  C  -  Am  -  A#  -  G
+
+C  -  C7  -  F  -  Fm  -  C  -  Am  -  Dm  -  G  -  C  |  F  -  G  -  C
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+C  -  C7  -  F  -  Fm  -  C  -  Am  -  Dm  -  G
+
+C  -  C7  -  F  -  Fm  -  C  -  Am  -  Dm  -  G  -  C  |  F  -  G  -  C
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+}
+</script>
+
+</body>
+</html>

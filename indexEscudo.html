@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Escudo</title>
+  <link rel="stylesheet" href="styleEscudo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Escudo</h1>
+  <h2>Voz da Verdade</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Escudo.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">D</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+D   Em   A   D
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Estrofe</h3>
+<pre class="cifra">
+Por toda a minha vida
+                   Em
+Ó senhor, te louvarei
+                         A
+Pois meu fôlego é a tua vida
+                 D
+E nunca me cansarei
+
+Posso ouvir a tua voz
+                      Em
+É mais doce do que o mel
+                   A
+Que me tira desta cova
+                 D
+E me leva até o céu
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Estrofe 2</h3>
+<pre class="cifra">
+Já vi fogo e terremotos
+                    Em
+Vento forte que passou
+                  A
+Já vivi tantos perigos
+                    D
+Mas tua voz me acalmou
+
+Tu dás ordem às estrelas
+                    Em
+E ao mar os seus limites
+                   A
+Eu me sinto tão seguro
+                   D
+No teu colo, ó, Altíssimo
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+            Bm            F#m
+Não há ferrolhos, nem portas
+        G        A           D
+Que se fechem  diante da tua voz
+        A/C# Bm          F#m
+Não há do____enças, nem culpa
+     G         A           D
+Que fiquem de pé diante de nós
+        A/C#  Bm       F#m
+E a tempes___tade se acalma
+    G            A        D
+Na voz daquele que tudo criou
+          A/C#  Bm      F#m
+Pois sua pa____lavra é pura
+        G        A       D
+Escudo para os que nele creem
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>

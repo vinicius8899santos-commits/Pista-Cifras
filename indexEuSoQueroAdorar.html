@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Eu Só Quero Adorar</title>
+  <link rel="stylesheet" href="EuSoQueroAdorar.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+  <h1>Eu Só Quero Adorar</h1>
+  <h2>Gerson Rufino</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="EuSoQueroAdorar.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">Am</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+Am  F  G  C  Bm5-  E7
+Am  F  G  C  Bm5-  E7
+
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+        Am                   Dm
+Eu não sei o que Ele viu em mim
+       G             G/B  C ( Bm5-  E7 )
+Não entendo por que me  amou
+        Am              Dm
+Eu não sou o que devia ser
+         G          G/B  C  
+Mesmo assim, Ele me abraçou
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Segunda Parte</h3>
+<pre class="cifra">
+        Dm                  F
+Sou pequeno, Ele tão grande é
+G         Am          ( G/B ) C
+  Eu sou falho e Ele é fiel
+          Dm     ( Dm  C/E ) F
+O que eu deveria era  mor___rer
+      Dm            F    G ( F/A  G/B )
+Mas Ele me prometeu   o céu
+
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+C                 G/B 
+  Eu só quero adorar
+                  Dm
+Por isso estou aqui
+              C/E  F   
+E se eu não ado___rar
+      F/G  G   C
+Falta algo em mim 
+               G/B
+Eu jamais saberei 
+              C  Dm
+Por que me escolheu
+            C/E      F   
+Mas de uma coisa eu sei
+             F/G
+Tudo que eu tenho 
+  G     C    
+Ele me deu
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+      Am                   Dm
+Eu não sei o que Ele viu em mim
+       G             G/B  C ( Bm5-  E7 )
+Não entendo por que me  amou
+        Am              Dm
+Eu não sou o que devia ser
+         G          G/B  C  
+Mesmo assim, Ele me abraçou 
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Segunda Parte</h3>
+<pre class="cifra">
+        Dm                  F
+Sou pequeno, Ele tão grande é
+G         Am          ( G/B ) C
+  Eu sou falho e Ele é fiel
+          Dm     ( Dm  C/E ) F
+O que eu deveria era  mor___rer
+      Dm            F    G ( F/A  G/B )
+Mas Ele me prometeu   o céu
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+C                 G/B 
+  Eu só quero adorar
+                  Dm
+Por isso estou aqui
+              C/E  F   
+E se eu não ado___rar
+      F/G  G   C
+Falta algo em mim 
+               G/B
+Eu jamais saberei 
+              C  Dm
+Por que me escolheu
+            C/E      F   
+Mas de uma coisa eu sei
+             F/G
+Tudo que eu tenho 
+
+Ele me deu
+
+[Solo] Bb  F/A  Ab  Eb/G
+       Dm  Em  F  G
+
+Parte 2 de 6
+
+Parte 6 de 6
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão Final</h3>
+<pre class="cifra">
+C                 G/B 
+  Eu só quero adorar
+                  Dm
+Por isso estou aqui
+              C/E  F   
+E se eu não ado___rar
+      F/G  G   C
+Falta algo em mim 
+               G/B
+Eu jamais saberei 
+              C  Dm
+Por que me escolheu
+            C/E      F   
+Mas de uma coisa eu sei
+             F/G
+Tudo que eu tenho 
+  G     C    
+Ele me deu
+
+Am              G/B  
+   Tudo que eu tenho
+        Am  Am/G 
+Ele me deu
+Dm        Em    F  
+   Tudo que eu tenho
+  G     C
+Ele me deu
+
+( F  C )
+</pre>
+</div>
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function atualizarTipoTom() {
+  const tomAtual = document.getElementById("tomAtual").innerText;
+  const tipoTom = document.getElementById("tipoTom");
+
+  // Se o tom termina com "m", considera menor
+  if (tomAtual.includes("m") && !tomAtual.includes("maj")) {
+    tipoTom.innerText = "Menor";
+  } else {
+    tipoTom.innerText = "Maior";
+  }
+}
+
+// Atualiza o tipo do tom toda vez que transpor
+function transpor(valor) {
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText.replace("m","").replace("maj",""));
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+
+  let suffix = tomAtual.innerText.replace(/^[A-G](#)?/, ""); // mantém m, 7, etc.
+  tomAtual.innerText = notas[novoIndiceTom] + suffix;
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+    let texto = pre.innerText;
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+  // Atualiza o tipo do tom
+  atualizarTipoTom();
+}
+
+// Atualiza ao carregar a página
+atualizarTipoTom();
+
+</script>
+
+</body>
+</html>

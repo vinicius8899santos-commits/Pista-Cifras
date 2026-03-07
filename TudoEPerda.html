@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Tudo É Perda</title>
+  <link rel="stylesheet" href="TudoEPerda.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Tudo É Perda</h1>
+  <h2>Felipe Rodrigues</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="TudoEPerda.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">C</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+ C  Am7  G  F7M(2)/C
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+C                      Am7
+  Tudo é perda se não tenho a Ti
+G                         F7M(2)/C
+  A Tua graça é o que me basta
+C                       Am7
+  Sem Você, não sei pra onde ir
+G                           F7M(2)/C
+  Sem Tua presença, nada importa
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+       F7M(2)/C
+Do que adianta eu 
+          G
+Ganhar o mundo inteiro
+     C/E      
+E a minha alma se perder
+     F7M(2)/C
+Sem Ti, Senhor?
+
+       F7M(2)/C
+Do que adianta
+              G
+Eu juntar os meus tesouros
+C/E                     F7M(2)/C
+E me esquecer daquele que me amou?
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+                   Dm      C     G
+Se eu não tenho a Ti, não tenho nada
+           C/E            F7M(2)/C
+Nada eu serei sem Ti, Senhor
+           Dm         C     G
+Só Tua presença é o que me basta
+           C/E             F7M(2)/C
+Eu te levarei por onde eu for 
+
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+       F7M(2)/C
+Do que adianta eu 
+          G
+Ganhar o mundo inteiro
+     C/E      
+E a minha alma se perder
+     F7M(2)/C
+Sem Ti, Senhor?
+
+       F7M(2)/C
+Do que adianta
+              G
+Eu juntar os meus tesouros
+C/E                     F7M(2)/C
+E me esquecer daquele que me amou?
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+                    Dm      C     G
+Se eu não tenho a Ti, não tenho nada
+           C/E            F7M(2)/C
+Nada eu serei sem Ti, Senhor
+           Dm         C     G
+Só Tua presença é o que me basta
+           C/E             F7M(2)/C
+Eu Te levarei por onde eu for 
+
+                   Dm      C     G
+Se eu não tenho a Ti, não tenho nada
+           C/E            F7M(2)/C
+Nada eu serei sem Ti, Senhor
+           Dm         C     G
+Só Tua presença é o que me basta
+           C/E             F7M(2)/C
+Eu Te levarei por onde eu for 
+
+( Dm  G  C/E  F7M(2)/C )
+( Dm  G  C/E  F7M(2)/C )
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Ponte</h3>
+<pre class="cifra">
+        Dm               G
+Tua presença é o que me basta
+ C/E                          F7M(2)/C
+Quem sou eu sem Teu amor, Senhor?
+
+        Dm               G
+Tua presença é o que me basta
+ C/E                          F7M(2)/C
+Quem sou eu sem Teu amor, Senhor?
+
+        Dm               G
+Tua presença é o que me basta
+ C/E                          F7M(2)/C
+Quem sou eu sem Teu amor, Senhor?
+
+        Dm               G
+Tua presença é o que me basta
+ C/E                          F7M(2)/C
+Quem sou eu sem Teu amor, Senhor?
+
+[Refrão final]
+
+                   Dm      C     G
+Se eu não tenho a Ti, não tenho nada
+           C/E            F7M(2)/C
+Nada eu serei sem Ti, Senhor
+           Dm         C     G
+Só Tua presença é o que me basta
+           C/E             F7M(2)/C
+Eu Te levarei por onde eu for
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>

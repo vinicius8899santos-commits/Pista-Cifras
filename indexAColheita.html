@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - A Colheita</title>
+  <link rel="stylesheet" href="styleEscudo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>A Colheita</h1>
+  <h2>Alda Célia</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="AColheita.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">C</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+ C  F  C  F C  F  C  F
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Estrofe</h3>
+<pre class="cifra">
+C                    G
+Voz do que clama em meio ao deserto
+Am                   F
+Prepara o caminho do meu Salvador
+C                     G
+Grita nas praças, nas ruas, nos campos
+Am                   F
+Prepara o caminho do meu Salvador
+Dm                 G
+Toca a trombeta em Sião
+       Dm               F         G
+Não despreze as feridas das tuas mãos
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+C                   G
+Este é o tempo de lançarmos a rede
+   Am7              F
+Pregar a palavra, viver o evangelho
+ C                  G
+Este é o tempo de quebrantamento
+      F
+A colheita chegou
+  Dm       Em       F      G        C
+A hora é chegada o tempo é este, ele vem!
+
+( F  G  Am7  F  G )
+( C  F  G  Am7 )
+( F  G  C )
+
+C                    G
+Voz do que clama em meio ao deserto
+Am                   F
+Prepara o caminho do meu Salvador
+C                     G
+Grita nas praças, nas ruas, nos campos
+Am                   F
+Prepara o caminho do meu Salvador
+Dm                 G
+Toca a trombeta em Sião
+       Dm                F         G
+Não despreze as feridas das tuas mãos
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+ C                   G
+Este é o tempo de lançarmos a rede
+   Am7              F
+Pregar a palavra, viver o evangelho
+ C                  G
+Este é o tempo de quebrantamento
+      F
+A colheita chegou
+  Dm       Em       F      G        C     G
+A hora é chegada o tempo é este, ele vem!
+
+ C                   G
+Este é o tempo de lançarmos a rede
+   Am7              F
+Pregar a palavra, viver o evangelho
+ C                  G
+Este é o tempo de quebrantamento
+      F
+A colheita chegou
+  Dm       Em       F      G        C
+A hora é chegada o tempo é este, ele vem!
+     G        F
+Ele vem, Ele vem
+    Dm          G            C
+O Espírito e a noiva dizem: vem!
+    G         F
+Ele vem, Ele vem
+
+C
+Ide fazei discípulos de todas as nações
+            C
+Porque Ele vem
+
+( F  G  Am7  F  G )
+
+C
+Ide fazei discípulos de todas as nações
+            C
+Porque Ele vem
+
+( D  Eb  F )
+( G  Bb  C )
+
+C                                                   C   F  G
+ Ide fazei discípulos de todas as nações porque Ele vem
+    Am7        F   G         C
+O Espírito e a noiva dizem:  Vem!
+            G           Am7        F               C   G
+Ide fazei discípulos de todas as nações porque Ele vem
+    Am7        F             C
+O Espírito e a noiva dizem:  Vem!
+            G           Am7        F               C   G
+Ide fazei discípulos de todas as nações porque Ele vem
+    Am7        F             C
+O Espírito e a noiva dizem:  Vem!
+            G           Am7        F               C   G
+Ide fazei discípulos de todas as nações porque Ele vem
+    Am7        F             C
+O Espírito e a noiva dizem:  Vem!
+            G           Am7        F               C   G
+Ide fazei discípulos de todas as nações porque Ele vem
+    Am7        F             C
+O Espírito e a noiva dizem:  Vem!
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Final</h3>
+<pre class="cifra">
+Eb  D  C  Bb
+Ab  G  F  Eb  C
+C  D  Eb  F
+G  Bb  C
+</div>
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>

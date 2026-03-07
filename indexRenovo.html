@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Renovo</title>
+  <link rel="stylesheet" href="Renovo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Renovo</h1>
+  <h2>Sarah Farias</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Renovo.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">A</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+A  D  F#m  E
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Solo</h3>
+<pre class="cifra">
+
+ A9                          F#m7
+Pai,me dá disposição para aprender de ti
+                          D9       Bm7                E4  
+Me dá disposição pra mergulhar, no mar da oração mais uma 
+    E
+vez
+
+( E  F#  A  E  A )
+
+ A9                               F#m7               
+Pai, eu quero ser levado, por tua direção, ouvir tua 
+          D9
+palavra e entender
+       Bm7                  E4         E  D9  A
+Com suprema exatidão o que quer de mim
+
+Bm7                                D9
+ Eu não vim aqui, pedir mais um milagre
+                         E   F#m
+Eu não vim aqui, apenas de passagem
+                             E4     E
+Hoje eu vim aqui, pra ti servir melhor
+
+   A                        D
+Renovo, o que eu quero é renovo
+                 F#m7      E
+Pra te sentir de novo, de novo
+   A                        D
+Renovo, o que eu quero é renovo
+                    F#m        E
+Pra ter o brilho no rosto, de novo
+
+( E  D9  C#  Bm7 )
+
+Bm7                                D9
+ Eu não vim aqui, pedir mais um milagre
+                         E   F#m
+Eu não vim aqui, apenas de passagem
+                             E4     E
+Hoje eu vim aqui, pra ti servir melhor
+
+( E  D9  C#  Bm7 )
+
+Bm7                                D9
+ Eu não vim aqui, pedir mais um milagre
+                         E   F#m
+Eu não vim aqui, apenas de passagem
+                             E4     E
+Hoje eu vim aqui, pra ti servir melhor
+
+   A                        D
+Renovo, o que eu quero é renovo
+                 F#m7      E
+Pra te sentir de novo, de novo
+   A                        D
+Renovo, o que eu quero é renovo
+                    F#m        E
+Pra ter o brilho no rosto, de novo
+
+[Solo] A  D  E
+       F#m  E4  E
+
+     Bm7      D
+Toca-me, toca-me
+             F#m7
+Nem mais um passo darei
+               E4  E
+Nada farei sem ti
+     Bm7      D
+Toca-me, toca-me
+             F#m7
+Nem mais um passo darei
+               E4  E
+Nada farei sem ti
+
+    Bm7      D
+Toca-me, toca-me
+             F#m7
+Nem mais um passo darei
+               C#m
+Nada farei sem ti
+     D        Bm7
+Toca-me, toca-me
+             F#m7
+Nem mais um passo darei
+               E4  E
+Nada farei sem ti
+
+D                A/C#  Bm
+ Tem renovo na casa,  tem
+                E   F#m
+Tem renovo na casa, tem
+E4         E
+Tem, tem, tem
+D                A/C#  Bm
+ Tem renovo na casa,  tem
+                E   F#m
+Tem renovo na casa, tem
+  E4   E
+Renovo tem
+
+   A                        D
+Renovo, o que eu quero é renovo
+                 F#m7      E
+Pra te sentir de novo, de novo
+   A                        D
+Renovo, o que eu quero é renovo
+                    F#m        E
+Pra ter o brilho no rosto, de novo
+
+[Final] A  D/A  A
+
+[Solo]
+
+E|---------------------------------|
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Sete trombeta</title>
+  <link rel="stylesheet" href="styleSeteTrombeta.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+  <h1>Sete Trombeta</h1>
+  <h2>Lauriete</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Sete Trombetas.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">Am</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+Dm7   C   B   E4   E
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Estrofe</h3>
+<pre class="cifra">
+Am7
+  Uma mistura de Sangue com fogo
+G
+  A terça parte deste mundo queimará
+F                                             Dm7
+  Eu quero estar distante, eu quero estar no céu
+                      E7
+  Quando o anjo a primeira trombeta tocar
+Am7
+  Um grande meteoro vai cair no mar
+G
+  Pela segunda vez que a trombeta soar
+F                                 Dm7
+  Levando a terça parte à destruição
+                      E4           E
+  Não quero estar presente nessa ocasião
+      (Bateria entra com toque normal)
+Am7                                Dm7
+  Na terceira vez que a trombeta tocar
+                                G
+  Uma grande estrela do céu cairá
+                             C
+  Destruindo as fontes das águas
+               G/B
+  Envenenados muitos homens morrerão
+Am7
+   Na quarta vez o sol perderá a luz
+Dm7
+  A lua não terá aquele brilho que seduz
+G/B
+  O dia vai ser noite, a noite vais ser dia
+G                     F/G
+  Eu quero estar na glória junto de Jesus
+  C           F      Dm7
+  Breve vira! Breve vira!
+  C/E   F          G       A  (  (F  G  Am))
+  Bre - ve  Je - sus volta - rá
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+Am                 F
+  Eu quero estar além de tudo
+C                   G
+  Eu não pertenço a este mundo
+Am                  F
+  Eu vou guardar a minha fé
+       E7
+  Pra não perder minha coroa
+Am                  F
+  Preciso andar em santidade
+C                Em
+  Pra ver a face do meu noivo
+Dm7           C        F             G   Am
+  E adorar na excelência o Todo Podero - so
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Segunda Parte</h3>
+<pre class="cifra">
+
+Am7                                      E/G#
+  E quando pela quinta vez a trombeta tocar
+                E7
+  A porta do inferno então se abrirá
+Am7                               E/G#
+  O mau será liberto para atormentar
+                                   Am7
+  Aqueles que não foram fiéis a Jeová
+(Instrumental: Pam Pam           Pam Pam)
+  Os homens vão querer a morte se entregar
+F
+  E certamente deles ela fugirá
+C             (intru:fim)       e
+  Desesperadamente vão gritar perdão
+                  E7
+  Durante cinco meses assim ficarão
+
+
+    Pam Pam                          (contra)
+Am7                                     F
+  E quando pela sexta vez a trombeta tocar
+                                        (Contra)
+  Duzentos milhões de anjos do inferno virão
+        G                      E/G#
+  São eles cavaleiros da destruição
+                     E7
+  Matando a terça parte da população
+
+( Am7  F/A  G  Dm7 )
+( Am7  F/A  G  Dm7 )
+
+Am
+E quando o sétimo anjo tocar a última
+Trombeta
+Am
+Haverá no céu grandes vozes que dirão
+Am
+"Os reinos do mundo vierão a ser do
+Am
+Nosso senhor Jesus Cristo
+Am
+E ele reinará para sempre
+Am
+E os Vinte E Quatro anciãos que estão
+Am
+Assentados em seus tronos diante de Deus
+F
+Se prostrarão sobre seus rostos e o
+F                                    Dm
+Adorarão em espírito e em verdade"
+
+
+Instrumental: Pam Pam
+
+       Am
+  Não quero estar aqui quando as trombetas tocarem
+    Pam Pam
+        F
+  Não quero estar aqui eu quero estar com Jeová
+      Dm7
+  Eu vou me preparar, eu vou me preparar
+    E
+  Aqui não vou ficar, aqui não vou ficar!
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+Am                 F
+  Eu quero estar além de tudo
+C                   G
+  Eu não pertenço a este mundo
+Am                  F
+  Eu vou guardar a minha fé
+       E7
+  Pra não perder minha coroa
+Am                  F
+  Preciso andar em santidade
+C                Em
+  Pra ver a face do meu noivo
+Dm7           C        F
+  E adorar na excelência
+          G   Am  F  Am
+Todo Podero - so
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function atualizarTipoTom() {
+  const tomAtual = document.getElementById("tomAtual").innerText;
+  const tipoTom = document.getElementById("tipoTom");
+
+  // Se o tom termina com "m", considera menor
+  if (tomAtual.includes("m") && !tomAtual.includes("maj")) {
+    tipoTom.innerText = "Menor";
+  } else {
+    tipoTom.innerText = "Maior";
+  }
+}
+
+// Atualiza o tipo do tom toda vez que transpor
+function transpor(valor) {
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText.replace("m","").replace("maj",""));
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+
+  let suffix = tomAtual.innerText.replace(/^[A-G](#)?/, ""); // mantém m, 7, etc.
+  tomAtual.innerText = notas[novoIndiceTom] + suffix;
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+    let texto = pre.innerText;
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+  // Atualiza o tipo do tom
+  atualizarTipoTom();
+}
+
+// Atualiza ao carregar a página
+atualizarTipoTom();
+
+</script>
+
+</body>
+</html>

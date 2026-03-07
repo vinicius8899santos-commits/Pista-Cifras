@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Escudo</title>
+  <link rel="stylesheet" href="styleAlemDoRioAzul.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+  <h1>Além do rio Azul</h1>
+  <h2>Voz da Verdade</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Alem do rio Azul.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+</script>
+
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">C</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+C   G   Am   C   G   Am   F   G   C   F   C
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+  C      F    C
+Além do rio azul
+    F          G              C
+As ruas são de ouro e de cristais
+  F         G      C  G/B    Am
+Ali tudo é vida, ali tudo é paz
+ G        F    G        C   Am
+Morte e choro,   nunca mais
+            F   G        C   F
+Tristeza e dor,   nunca mais
+
+  C      F    C
+Além do rio azul
+    F          G              C
+As ruas são de ouro e de cristais
+  F         G      C  G/B    Am
+Ali tudo é vida, ali tudo é paz
+ G        F    G        C   Am
+Morte e choro,   nunca mais
+            F   G        C
+Tristeza e dor,   nunca mais
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+   Bb2          F      G
+Verei o grande rio da vida
+  Bb2      F      G
+Claro como o cristal
+   Bb2           F             G
+Verei a face do meu Mestre querido
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+Am          Dm             G
+   Não haverá mais noite ali
+         C  G/B            Am
+Não haverá      nenhum clamor
+         Dm          G
+Verei os olhos de Jesus
+       C                E
+E tocarei Seu corpo, enfim
+
+         Dm             G
+Não haverá mais noite ali
+         C  G/B            Am
+Não haverá      nenhum clamor
+         Dm          G
+Verei os olhos de Jesus
+       C                E
+E tocarei Seu corpo, enfim
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Ponte</h3>
+<pre class="cifra">
+F       G        C     G/B  Am  G
+  As nações andarão à Sua  luz
+F       G        C       G/B  Am  G
+  E as portas jamais se fecharão
+F      G        C  G/B  Am
+  A cidade é de ouro   puro
+            F
+De jaspe é seu muro
+              C
+Além do rio azul
+
+Morte e choro, tristeza e dor
+
+Nunca mais, nunca mais
+          C
+Morte e choro, tristeza e dor
+       G           C
+Nunca mais, nunca mais
+
+Morte e choro, tristeza e dor
+       G           C
+Nunca mais, nunca mais
+
+Morte e choro, tristeza e dor
+       G           C
+Nunca mais, nunca mais
+
+Morte e choro, tristeza e dor
+       G                  C
+Nunca mais, além do rio azul
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+</script>
+
+</body>
+</html>

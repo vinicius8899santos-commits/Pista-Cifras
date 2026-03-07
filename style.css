@@ -1,0 +1,174 @@
+
+header{
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 20px;
+background: #111;
+color: white;
+}
+
+.logo-area{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.logo-text{
+font-size: 35px;
+font-weight: bold;
+}
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #121212;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #1db954;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: white;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #004d00, #00c853, #1db954);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+header input {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  width: 250px;
+  outline: none;
+}
+
+/* MENU */
+nav {
+  background: #1f1f1f;
+  padding: 10px 30px;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #1db954;
+}
+
+/* SEÇÃO */
+.destaque {
+  padding: 30px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.lista-musicas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.musica {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.musica:hover {
+  transform: translateY(-5px);
+}
+
+.musica h3 {
+  margin: 0 0 5px 0;
+}
+
+.musica p {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.musica a {
+  text-decoration: none;
+  background: #1db954;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.musica a:hover {
+  background: #17a44b;
+}
+
+/* Mensagem */
+#mensagem {
+  display: none;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lista-musicas {
+    justify-content: center;
+  }
+}

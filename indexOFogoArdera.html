@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - O Fogo Arderá</title>
+  <link rel="stylesheet" href="OFogoArdera.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>O Fogo Arderá</h1>
+  <h2>Alexsander Lúcio</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="OFogoArdera.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">C</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+ F9  G4  C/E  Am7  G4
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+Am7          G4  
+    Teu fogo    arde em mim
+C/E                 F9
+    E muda o meu viver
+Am7                 G4
+    Sou Teu templo,    sou Teu altar
+C/E                         F9                      
+    Sacrifício vivo quero oferecer
+
+Am7          G4 
+    Teu fogo    arde em mim
+C/E                 F9
+    E muda o meu viver
+Am7                 G4
+    Sou Teu templo,    sou Teu altar
+C/E                         F9                                
+    Sacrifício vivo quero oferecer
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+C/E                 F9                 
+    Que o nosso louvor 
+               G4
+Não seja um momento
+            C/E            Am7
+Lágrimas vazias, sem avivamento
+              F9              G4
+Que o nosso amor não seja fingido
+                C/E     
+Honrado com os lábios
+                   Am7
+Nos corações esquecido 
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+Pois de que vale ter as
+    F9
+Poesias mais lindas
+         G4
+As harmonias mais brilhantes
+        Am7           G/B
+Se não há verdade em nós?
+
+             C    C/E        
+Pois de que vale ter
+ F9
+Tudo e não ter nada? 
+             G4
+Te dar meus lábios, não minha alma?
+                  C
+Eu quero me entregar a Ti
+                           C/E
+Entregar minha vida como adoração
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+                F                 
+Que o nosso louvor 
+               G
+Não seja um momento
+            C/E            Am7
+Lágrimas vazias, sem avivamento
+              F               G
+Que o nosso amor não seja fingido
+                C/E     
+Honrado com os lábios
+                   Am7
+Nos corações esquecido 
+
+[Segundo Refrão]
+
+Pois de que vale ter as
+    F
+Poesias mais lindas
+         G
+As harmonias mais brilhantes
+        Am7           G/B
+Se não há verdade em nós?
+
+Pois de que vale ter
+ F
+Tudo e não ter nada? 
+             G
+Te dar meus lábios, não minha alma?
+                  C
+Eu quero me entregar a Ti
+                           C/E
+Entregar minha vida como adoração
+
+                             F
+Não vale a pena só me emocionar
+
+E buscar as canções mais
+               G
+Lindas pra cantar 
+
+Se eu não for uma canção 
+      C
+Que alegra a Ti
+                          Em
+Se o meu coração não queimar por Ti
+
+                             F
+Não vale a pena só me emocionar
+
+E buscar as canções mais lindas 
+        G
+Pra cantar
+
+Se eu não for uma canção 
+         C
+Que alegra a Ti
+                          Em
+Se o meu coração não queimar por Ti
+
+( F  G  C  Em )
+( F  G  C  Em )
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Segunda Parte</h3>
+<pre class="cifra">
+            Am7
+E o fogo arderá sobre o altar
+
+Continuamente sobre o altar
+               G  Em
+E não se apagará
+
+            Am7
+E o fogo arderá sobre o altar
+
+Continuamente sobre o altar
+               G  Em
+E não se apagará
+
+            Am7
+E o fogo arderá sobre o altar
+
+Continuamente sobre o altar
+               G  Em
+E não se apagará
+
+            Am7
+E o fogo arderá sobre o altar
+
+Continuamente sobre o altar
+               G  Em
+E não se apagará
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+              F9                G4
+Que o nosso louvor não seja um momento
+            C/E            Am7
+Lágrimas vazias, sem avivamento
+              F9              G4
+Que o nosso amor não seja fingido
+                C/E    
+Honrado com os lábios
+                   Am7
+Nos corações esquecido 
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão Final</h3>
+<pre class="cifra">
+Pois de que vale ter as
+    F9
+Poesias mais lindas 
+         G4
+As harmonias mais brilhantes
+        Am7               G/B
+Se não há verdade em nós?
+
+             C    C/E            
+Pois de que vale ter
+ F9
+Tudo e não ter nada? 
+             G4
+Te dar meus lábios, não minha alma?
+                  C
+Eu quero me entregar a Ti
+                           C/E
+Entregar minha vida como adoração
+
+                             F9
+Não vale a pena só me emocionar
+
+E buscar as canções mais lindas 
+        G4
+Pra cantar
+
+Se eu não for uma canção 
+      C
+Que alegra a Ti
+                          C/E
+Se o meu coração não queimar por Ti
+
+                             F9
+Não vale a pena só me emocionar
+
+E buscar as canções mais lindas 
+        G4
+Pra cantar
+
+Se eu não for uma canção 
+      C
+Que alegra a Ti
+                          C/E       F9
+Se o meu coração não queimar por Ti
+</pre>
+</div>
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>

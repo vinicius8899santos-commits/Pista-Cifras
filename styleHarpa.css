@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: white;
+}
+
+/* HEADER */
+.topo {
+  background: linear-gradient(90deg, #004d00, #00c853, #1db954);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.btn-voltar {
+  text-decoration: none;
+  background: white;
+  color: #1db954;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* INFO */
+.info-musica {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.controles {
+  margin-top: 15px;
+}
+
+.btn-tom {
+  background: #1db954;
+  border: none;
+  padding: 6px 12px;
+  margin: 0 5px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tom strong {
+  color: #00e676;
+}
+
+/* CIFRA */
+.cifra-container {
+  padding: 20px;
+}
+
+.bloco {
+  background: #1e1e1e;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.bloco h3 {
+  margin-top: 0;
+  color: #00e676;
+}
+
+.cifra {
+  font-family: monospace;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1a1a;
+  color: #aaa;
+}
