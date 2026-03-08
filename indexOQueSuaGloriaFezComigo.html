@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - O Que Sua Glória Fez Comigo</title>
+  <link rel="stylesheet" href="OQueSuaGloriaFezComigo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+  <h1>O Que Sua Glória Fez Comigo</h1>
+  <h2>Fernanda Brum</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="OQueSuaGloriaFezComigo.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">Dm</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+Bb  C  Am  Dm
+Bb  C  Am  Dm
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+Bb             Gm7
+   Eu me rasgo     por inteiro
+Am                 Dm
+   Faço tudo, mas vem novamente
+Bb                 Gm7
+   Eu mergulho na mirra ardente
+Am                      Dm
+   Mas peço que Tua presença aumente
+
+[Solo] Bb  Gm7  Dm  Am
+       Bb  Gm7  Dm  Am
+
+Bb             Gm7
+   Eu me rasgo     por inteiro
+Am                 Dm
+   Faço tudo, mas vem novamente
+Bb                 Gm7
+   Eu mergulho na mirra ardente
+Am                      Dm
+   Mas peço que Tua presença aumente
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+Bb                      Gm7          C
+   E se eu passar pelo fogo não temerei
+                   Am
+Na Tua fumaça de glória eu entrarei
+Bb                     Gm7
+   Longe do Santo dos Santos
+                C4  C
+Não sei mais viver
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+      F/A  Bb                 C7/Bb
+Quem já   pisou no santo dos santos
+            Am             Dm
+Em outro lugar não sabe viver
+            Bb              C
+E onde estiver clama pela glória
+             F4  F  F4  F       
+A glória de Deus
+
+( F  Gm  Am )
+
+         Bb                 C7/Bb
+Quem já pisou no santo dos santos
+            Am             Dm
+Em outro lugar não sabe viver
+            Bb              C
+E onde estiver clama pela glória
+             F4  F
+A glória de Deus
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Ponte</h3>
+<pre class="cifra">
+  Bb  C/Bb        Am  Dm
+Gló________ria, gló_ria
+  Bb  C/Bb        Am  Dm
+Gló________ria, gló_ria
+ Bb  C/Bb      Am  Dm
+San_______to, San_to
+ Bb  C/Bb      Am  Dm
+San_______to, San_to
+
+ Bb  C/Bb        Am  Dm
+Ka________dosh, ka__dosh
+ Bb  C/Bb        Am  Dm
+Ka________dosh, ka__dosh
+ Bb  C/Bb      Am  Dm
+Ho________ly, Ho__ly
+ Bb  C/Bb      Am  Dm
+Ho________ly, Ho__ly
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+      F/A  Bb                 C7/Bb
+Quem já   pisou no santo dos santos
+            Am             Dm
+Em outro lugar não sabe viver
+            Bb              C
+E onde estiver clama pela glória
+             F4  F  F4  F       
+A glória de Deus
+
+( F  Gm  Am )
+
+         Bb                 C7/Bb
+Quem já pisou no santo dos santos
+            Am             Dm
+Em outro lugar não sabe viver
+            Bb              C
+E onde estiver clama pela glória
+             F4  F
+A glória de Deus
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão Final</h3>
+<pre class="cifra">
+  Bb  C/Bb        Am  Dm
+Gló________ria, gló_ria
+  Bb  C/Bb        Am  Dm
+Gló________ria, gló_ria
+</pre>
+</div>
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function atualizarTipoTom() {
+  const tomAtual = document.getElementById("tomAtual").innerText;
+  const tipoTom = document.getElementById("tipoTom");
+
+  // Se o tom termina com "m", considera menor
+  if (tomAtual.includes("m") && !tomAtual.includes("maj")) {
+    tipoTom.innerText = "Menor";
+  } else {
+    tipoTom.innerText = "Maior";
+  }
+}
+
+// Atualiza o tipo do tom toda vez que transpor
+function transpor(valor) {
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText.replace("m","").replace("maj",""));
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+
+  let suffix = tomAtual.innerText.replace(/^[A-G](#)?/, ""); // mantém m, 7, etc.
+  tomAtual.innerText = notas[novoIndiceTom] + suffix;
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+    let texto = pre.innerText;
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+  // Atualiza o tipo do tom
+  atualizarTipoTom();
+}
+
+// Atualiza ao carregar a página
+atualizarTipoTom();
+
+</script>
+
+</body>
+</html>

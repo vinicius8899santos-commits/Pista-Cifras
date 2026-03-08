@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - O Extraordinário</title>
+  <link rel="stylesheet" href="OEstraodinario.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+  <h1>O Extraordinário</h1>
+  <h2>Ella</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="OEstraordinario.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">Gm</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+Gm  D#  F4  F
+Cm  D  G4  G
+</pre>
+</div>
+
+<div class="bloco">
+<h3></h3>
+<pre class="cifra">
+G4   G           Cm6/Eb      G
+Ele foi onde ninguém pisou, curou
+                  Cm   D#°
+Quem o mundo esqueceu
+  Em7(9)             G/B
+Chorou lágrimas de um fiel
+Cm9   D4   D
+Moveu Terra e céu
+G9                      Cm7/G
+Entrou na história da humanidade
+G9                Cm7/G
+Foi um capítulo á parte
+Bm                     Am
+Antes e depois, principio e fim
+
+           G/B        C
+Pedra de esquina angular
+          D4    D
+O único e verdadeiro
+C     C/E     D4/F#  D/F#
+Ultimo e primeiro
+
+Gm
+Pra pagar o preço pelos meus pecados
+D#                                C/E
+Foi traído, transpassado, crucificado
+    F4      F                  Cm
+O Rei despiu se da glória no corpo mortal
+       D4         D
+Pra me fazer imortal
+
+     Gm
+Sua glória transcende o que é natural
+        D#                       C/E
+Seus olhos têm fogo, consomem o mal
+         F4                     F
+E em Sua coxa está escrito que ele é Rei do reis
+  D4               D
+E Senhor dos senhores
+
+   Gm
+Adorai o Cordeiro de Deus
+  D#/G
+Exaltai o Cordeiro de Deus
+ F/A
+Digno de abrir o Livro e desatar os selos
+ D     D4
+Só Ele é, só Ele é
+Gm      A       A#       D F G A# A
+Espírito Santo faz arder em mim
+ D#
+A presença de Jesus raiz de Davi
+ F                         D4  D
+Santo e tremendo, justo e fiel
+
+( G#m  C#m  D#4  D# )
+
+G#m
+Absoluto, exaltado, Ele é Senhor
+
+E/G#
+Leão imbatível, campeão de Judá
+F#/A#
+Revelação perfeita, Santo de Israel
+  D#  ( E  D#  C#  C#  B Bb )
+Em seu DNA tem os mistérios de Deus
+G#m
+O extraordinário dele não há defeitos
+ E                                Db/F
+Onipotente, indescritível, incomparável
+ F#
+Desejado das nações, Príncipe do céu
+D#               D#
+Estrela da manhã, Emanuel
+
+( G#  G  E  D#  B  Bb )
+( G#  G  E  D#  B  Bb  G# )
+
+    G#m
+Adorai o Cordeiro de Deus
+      E/G#
+Exaltai o Cordeiro de Deus
+  F#4                    F#
+Digno de abrir o Livro e desatar os selos
+  D#4          D#
+Só Ele é. só Ele é
+  G#          G#m
+Espírito Santo faz arder em mim
+ E ( E  F#  G#  B  A#  G#  F# )
+A presença de Jesus raiz de Davi
+F#                          D#  E4  E
+Santo e tremendo, justo e fiel
+
+    Am
+Adorai o Cordeiro de Deus
+    F/A               ( F/A  F/B  F/C )
+Exaltai o Cordeiro de Deus
+    G        ( B  A  G  F  D   E  F  D )
+Digno de abrir o Livro e desatar os selos
+E           E/G#
+Só Ele é. só Ele é
+ Am
+Espírito Santo faz arder em mim
+ F
+A presença de Jesus raiz de Davi
+  G                         Dm  C  G/B  F  G  A4  A
+Santo e tremendo, justo e fiel
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function atualizarTipoTom() {
+  const tomAtual = document.getElementById("tomAtual").innerText;
+  const tipoTom = document.getElementById("tipoTom");
+
+  // Se o tom termina com "m", considera menor
+  if (tomAtual.includes("m") && !tomAtual.includes("maj")) {
+    tipoTom.innerText = "Menor";
+  } else {
+    tipoTom.innerText = "Maior";
+  }
+}
+
+// Atualiza o tipo do tom toda vez que transpor
+function transpor(valor) {
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText.replace("m","").replace("maj",""));
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+
+  let suffix = tomAtual.innerText.replace(/^[A-G](#)?/, ""); // mantém m, 7, etc.
+  tomAtual.innerText = notas[novoIndiceTom] + suffix;
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+    let texto = pre.innerText;
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+  // Atualiza o tipo do tom
+  atualizarTipoTom();
+}
+
+// Atualiza ao carregar a página
+atualizarTipoTom();
+
+</script>
+
+</body>
+</html>

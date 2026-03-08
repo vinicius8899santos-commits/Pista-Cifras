@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Quem Me Vê Cantando</title>
+  <link rel="stylesheet" href="QuemMeVeCantando.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Quem Me Vê Cantando</h1>
+  <h2>Fabiana Anastácio</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="QuemMeVeCantando.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+    <span class="tom">Tom: <strong id="tomAtual">B</strong></span>
+    <button class="btn-tom" onclick="transpor(-1)">-</button>
+    <button class="btn-tom" onclick="transpor(1)">+</button>
+  </div>
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+E  F# G#m   E  F#  F#  B
+E  F# G#m   C#m  B  E  F#  F#
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Lovor</h3>
+<pre class="cifra">
+Quem me vê cantando 
+           F#            G#m
+Pensa que em todo tempo foi só alegria
+            E                   B       C#m
+E que nesta vida eu nunca tive motivos pra chorar
+          F#  F#
+Quem me vê cantando nunca imagina
+            B   B
+Que passei noites escuras
+           C#  C#               F#
+Pensa que minha vida foi viver feliz e só cantar
+
+     E     Em
+Mas não foi bem assim
+     B     G#m
+O deserto atravessei
+    C#m                        F#    B
+Os pés doendo com as feridas dos espinhos
+     E     Em
+E quantas vezes eu gritei
+     B    G#m
+Porque a dor não suportei
+    C#m     E              F#
+Deus, eu vou morrer neste caminho
+
+     B   F#          G#m
+Mas quando eu pensava que estava só
+      E    B   C#m
+O todo poderoso aparecia
+      E    Em
+E renovava as promessas
+      B      G#m
+Me lembrava do que ele fez
+      C#m         F#      B  F#
+E palavras de conforto me dizia
+   
+      B             B       B
+Lembra da nuvem de dia, fui eu
+      E               E     E
+Lembra da coluna de fogo, fui eu
+        F#              E     B    F#
+Eu fiz pedra jorrar água pra você beber
+      B             B      B
+Lembra do maná do céu, fui eu
+      E              E    E
+Lembra do caminho no meio do mar
+      F#                    B
+Canta, pois sou eu quem cuido de você
+
+           F#
+Ninguém vai te tocar, Ninguém vai te deter
+            B
+E se te acusar, Eu defendo você
+           F#
+Eu te abençoo aqui, Eu te abençoo lá
+            B
+Onde pisar teu pé, Abençoado será
+
+            F#
+Eu dou, eu tomo, exalto, humilho
+           B
+Abato e honro, dou e tiro,
+            F#
+Tenho, faço, mando, posso, eu sou
+            B
+Eu sou, eu sou
+
+          F#
+Eu posso matar, eu faço viver
+           B    B
+Eu posso exaltar, eu posso abater
+            E    F#
+E se eu quero te abençoar
+           B
+Quem vai contender
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Final</h3>
+<pre class="cifra">
+Final: E  B
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>
