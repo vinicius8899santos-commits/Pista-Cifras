@@ -1,0 +1,184 @@
+/* ===============================
+   RESET E BASE
+   =============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===============================
+   CABEÇALHO
+   =============================== */
+.topo {
+    width: 100%;
+    background: linear-gradient(90deg, #004d00, #00c853, #1db954);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn-voltar {
+    text-decoration: none;
+    background: #fff;
+    color: #1db954;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-voltar:hover {
+    background: #e6e6e6;
+    transform: scale(1.05);
+}
+
+/* ===============================
+   METRÔNOMO PRINCIPAL
+   =============================== */
+.metronomo {
+    background-color: #1e1e1e;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: 50px auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    transition: all 0.3s ease;
+}
+
+.metronomo:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+/* ===============================
+   BOTÕES
+   =============================== */
+button, .plus_minus {
+    background: #1db954;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px;
+    transition: all 0.2s ease;
+}
+
+button:hover, .plus_minus:hover {
+    background: #17a44b;
+    transform: scale(1.05);
+}
+
+/* ===============================
+   BPM DISPLAY
+   =============================== */
+#bpmValor {
+    font-size: 3rem;
+    color: #00e676;
+    margin: 15px 0;
+    text-shadow: 0 0 12px #00e676;
+}
+
+input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #2c2c2c;
+    color: #fff;
+    text-align: center;
+    margin: 5px;
+}
+
+/* ===============================
+   COMPASSO
+   =============================== */
+.compasso {
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+.compasso label {
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+
+/* ===============================
+   RODAPÉ
+   =============================== */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* ===============================
+   RESPONSIVIDADE
+   =============================== */
+@media (max-width: 450px) {
+    .metronomo {
+        padding: 25px;
+        max-width: 90%;
+    }
+
+    #bpmValor {
+        font-size: 2.2rem;
+    }
+
+    button, .plus_minus {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    .luz {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.luzes {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.luz {
+    width: 20px;
+    height: 20px;
+    background: #444; /* LED apagado */
+    border-radius: 50%;
+    transition: background 0.1s;
+}
+
+.luz.active {
+    background: #1db954; /* LED verde aceso */
+}

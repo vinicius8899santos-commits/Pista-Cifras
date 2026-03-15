@@ -1,0 +1,300 @@
+/* ===============================
+   RESET
+   =============================== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+background:linear-gradient(180deg,#0d0d0d,#121212);
+color:#fff;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+/* ===============================
+   CABEÇALHO
+   =============================== */
+
+.topo{
+width:100%;
+max-width:900px;
+background:linear-gradient(90deg,#004d00,#00c853,#1db954);
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+/* botão voltar */
+
+.btn-voltar{
+text-decoration:none;
+background:#fff;
+color:#1db954;
+padding:8px 20px;
+border-radius:30px;
+font-weight:bold;
+transition:all 0.25s;
+box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+
+.btn-voltar:hover{
+background:#e8e8e8;
+transform:scale(1.05);
+}
+
+/* ===============================
+   CARD PRINCIPAL
+   =============================== */
+
+.metronomo{
+background:#1b1b1b;
+padding:40px 30px;
+border-radius:20px;
+text-align:center;
+max-width:420px;
+width:100%;
+margin:60px auto;
+box-shadow:
+0 10px 30px rgba(0,0,0,0.7),
+inset 0 0 10px rgba(255,255,255,0.03);
+transition:0.3s;
+}
+
+.metronomo:hover{
+transform:translateY(-3px);
+box-shadow:
+0 15px 40px rgba(0,0,0,0.8);
+}
+
+/* ===============================
+   NOTA
+   =============================== */
+
+.nota{
+font-size:100px;
+font-weight:bold;
+color:#00e676;
+text-shadow:
+0 0 10px #00e676,
+0 0 20px #00e676;
+margin-top:10px;
+}
+
+.freq{
+font-size:18px;
+color:#aaa;
+margin-bottom:25px;
+}
+
+/* ===============================
+   BARRA DE AFINAÇÃO
+   =============================== */
+
+.afinacao-container{
+width:100%;
+margin:25px 0;
+}
+
+.afinacao-barra{
+width:100%;
+height:12px;
+background:#2a2a2a;
+border-radius:20px;
+position:relative;
+}
+
+.afinacao-centro{
+position:absolute;
+left:50%;
+top:-6px;
+width:2px;
+height:24px;
+background:#fff;
+}
+
+#ponteiro{
+width:4px;
+height:26px;
+background:#00e676;
+position:absolute;
+left:50%;
+top:-7px;
+border-radius:3px;
+box-shadow:0 0 10px #00e676;
+transition:0.15s ease;
+}
+
+/* marcações */
+
+.marcas{
+display:flex;
+justify-content:space-between;
+font-size:12px;
+color:#777;
+margin-top:8px;
+}
+
+/* ===============================
+   STATUS
+   =============================== */
+
+.status{
+font-size:18px;
+margin-top:20px;
+color:#ccc;
+font-weight:500;
+}
+
+/* ===============================
+   BOTÕES
+   =============================== */
+
+button{
+background:linear-gradient(90deg,#1db954,#00e676);
+border:none;
+padding:12px 35px;
+border-radius:30px;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+font-size:1rem;
+margin-top:20px;
+transition:all 0.25s;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* ===============================
+   RODAPÉ
+   =============================== */
+
+footer{
+margin-top:auto;
+text-align:center;
+padding:20px;
+color:#777;
+font-size:0.9rem;
+}
+
+/* ===============================
+   RESPONSIVIDADE
+   =============================== */
+
+@media (max-width:480px){
+
+.metronomo{
+padding:30px 20px;
+}
+
+.nota{
+font-size:80px;
+}
+
+.topo{
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+/* ===============================
+   SELETOR DE INSTRUMENTO
+   =============================== */
+
+.instrumentos{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+
+.instrumentos button{
+padding:8px 18px;
+font-size:0.9rem;
+}
+
+/* ===============================
+   CORDAS
+   =============================== */
+
+.cordas{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+
+.corda{
+padding:10px 15px;
+border-radius:10px;
+background:#2a2a2a;
+font-weight:bold;
+font-size:18px;
+transition:0.2s;
+}
+
+.corda.ativa{
+background:#1db954;
+box-shadow:0 0 10px #1db954;
+}
+
+/* ===============================
+   MEDIDOR COM AGULHA
+   =============================== */
+
+.medidor{
+width:100%;
+height:80px;
+position:relative;
+margin-top:20px;
+}
+
+.medidor-linha{
+width:100%;
+height:4px;
+background:#333;
+position:absolute;
+top:40px;
+}
+
+.agulha{
+width:2px;
+height:70px;
+background:#00e676;
+position:absolute;
+left:50%;
+top:5px;
+transform-origin:bottom;
+transition:0.15s ease;
+box-shadow:0 0 10px #00e676;
+}
+
+.marcas-medidor{
+display:flex;
+justify-content:space-between;
+font-size:12px;
+color:#777;
+margin-top:60px;
+}

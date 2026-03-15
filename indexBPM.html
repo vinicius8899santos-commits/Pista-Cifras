@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Metronome written by Corey Trager in HTML and Javascript">
+    <title>Metrônomo Profissional</title>
+    <link rel="stylesheet" href="BPM.css">
+    <script src="BPM.js" defer></script>
+</head>
+<body onload="my_onload()" onkeydown="handle_key(event)">
+
+    <!-- CABEÇALHO -->
+    <header class="topo">
+        <div class="logo">🎵 Metrônomo</div>
+        <a href="index.html" class="btn-voltar">Voltar</a>
+    </header>
+
+        
+    <!-- METRÔNOMO -->
+    <div class="metronomo">
+
+        <!-- START / STOP -->
+        <button onclick="play_or_stop()" id="my_play_button">Start</button>
+
+        <!-- BPM -->
+        <div id="bpmValor">120</div>
+        <input id="my_bpm_input" type="number" min="40" max="300" step="1" value="120" onchange="change_bpm()">
+        <div>
+            <button class="plus_minus" onclick="increment_bpm(1)">+</button>
+            <button class="plus_minus" onclick="increment_bpm(-1)">-</button>
+        </div>
+
+        <!-- Volume -->
+        <div id="my_volume_label">Volume (1 a 10)</div>
+        <input id="my_volume_input" type="number" min="1" max="10" step="1" value="5" onchange="change_volume()">
+        <div>
+            <button class="plus_minus" onclick="increment_volume(1)">+</button>
+            <button class="plus_minus" onclick="increment_volume(-1)">-</button>
+        </div>
+
+        <!-- COMPASSO -->
+        <div class="compasso">
+            <span>Compasso:</span>
+            <label><input type="radio" name="beats" value="1" onclick="change_beats(this)" checked> Limpo</label>
+            <label><input type="radio" name="beats" value="4" onclick="change_beats(this)"> 4/4</label>
+            <label><input type="radio" name="beats" value="3" onclick="change_beats(this)"> 3/4</label>
+            <label><input type="radio" name="beats" value="5" onclick="change_beats(this)"> 5/4</label>
+        </div>
+
+        
+    </div>
+
+    <footer>
+        &copy; 2026 Metrônomo Profissional
+    </footer>
+
+</body>
+</html>

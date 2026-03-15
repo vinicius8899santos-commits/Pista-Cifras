@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Afinador</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="Afinador.css">
+</head>
+
+<body>
+
+<header class="topo">
+<div class="logo">Afinador</div>
+<a href="index.html" class="btn-voltar">Voltar</a>
+</header>
+
+<div class="metronomo">
+
+<h2>Afinador</h2>
+
+<div class="instrumentos">
+<button onclick="mudarInstrumento('guitarra')">Guitarra</button>
+<button onclick="mudarInstrumento('violao')">Violão</button>
+<button onclick="mudarInstrumento('baixo')">Baixo</button>
+</div>
+
+<div class="cordas" id="cordas"></div>
+
+<div class="nota" id="nota">--</div>
+<div class="freq" id="freq">0 Hz</div>
+
+<div class="medidor">
+
+<div class="medidor-linha"></div>
+<div class="agulha" id="agulha"></div>
+
+<div class="marcas-medidor">
+<span>-50</span>
+<span>0</span>
+<span>+50</span>
+</div>
+
+</div>
+
+<div class="status" id="status">
+aguardando som...
+</div>
+
+<button onclick="iniciarAfinador()">
+Iniciar Afinador
+</button>
+
+</div>
+
+<footer>
+Afinador Pista Cifra 🎸
+</footer>
+
+<script src="Afinador.js"></script>
+
+</body>
+</html>
