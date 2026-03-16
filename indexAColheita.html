@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Cifra - A Colheita</title>
-  <link rel="stylesheet" href="styleEscudo.css">
+  <link rel="stylesheet" href="AColheita.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -35,10 +35,12 @@
 }
   </script>
   <div class="controles">
-    <span class="tom">Tom: <strong id="tomAtual">C</strong></span>
-    <button class="btn-tom" onclick="transpor(-1)">-</button>
-    <button class="btn-tom" onclick="transpor(1)">+</button>
-  </div>
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">C</strong>
+  </span>
+</div>
+
+
 </section>
 
 <section class="cifra-container">
@@ -178,6 +180,7 @@ Ab  G  F  Eb  C
 C  D  Eb  F
 G  Bb  C
 </div>
+
 </section>
 
 <footer>
@@ -227,7 +230,61 @@ function transpor(valor){
 
 }
 
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
 </script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button class="tom-original" onclick="mudarTom('C')">C</button>
+<button onclick="mudarTom('C#')">C#</button>
+<button onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button onclick="mudarTom('A')">A</button>
+
+<button onclick="mudarTom('A#')">A#</button>
+<button onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
 
 
 </body>

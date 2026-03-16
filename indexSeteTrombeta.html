@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Cifra - Sete trombeta</title>
-  <link rel="stylesheet" href="styleSeteTrombeta.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Cifra - Sete Trombetas</title>
+
+<link rel="stylesheet" href="styleSeteTrombeta.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+
 <body>
 
 <header class="topo">
-  <div class="logo">🎸 Pista Cifra</div>
-  <a href="index.html" class="btn-voltar">← Voltar</a>
+<div class="logo">🎸 Pista Cifra</div>
+<a href="index.html" class="btn-voltar">← Voltar</a>
 </header>
 
 <section class="info-musica">
-  <h1>Sete Trombeta</h1>
-  <h2>Lauriete</h2>
 
-  <div class="player-audio">
-  <audio id="audioEscudo" src="Sete Trombetas.mp3"></audio>
-  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+<h1>Sete Trombetas</h1>
+<h2>Lauriete</h2>
+
+<div class="player-audio">
+<audio id="audioEscudo">
+<source src="Sete Trombetas.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleAudio()" id="btnAudio">
+▶️ Escutar Música
+</button>
 </div>
-  <script>
-    function toggleAudio() {
-  var audio = document.getElementById("audioEscudo");
-  var botao = document.getElementById("btnAudio");
 
-  if (audio.paused) {
-    audio.play();
-    botao.innerHTML = "⏸️ Pausar Música";
-  } else {
-    audio.pause();
-    botao.innerHTML = "▶️ Escutar Música";
-  }
-}
-  </script>
+<div class="controles">
+<span class="tom" onclick="abrirTom()">
+Tom: <strong id="tomAtual">Am</strong>
+</span>
+</div>
 
-  <div class="controles">
-    <span class="tom">Tom: <strong id="tomAtual">Am</strong></span>
-    <button class="btn-tom" onclick="transpor(-1)">-</button>
-    <button class="btn-tom" onclick="transpor(1)">+</button>
-  </div>
 </section>
 
 <section class="cifra-container">
 
 <div class="bloco">
 <h3>Intro</h3>
+
 <pre class="cifra">
 Dm7   C   B   E4   E
 </pre>
+
 </div>
 
 <div class="bloco">
+
 <h3>Estrofe</h3>
+
 <pre class="cifra">
+
 Am7
   Uma mistura de Sangue com fogo
 G
@@ -93,10 +95,13 @@ G                     F/G
   C/E   F          G       A  (  (F  G  Am))
   Bre - ve  Je - sus volta - rá
 </pre>
+
 </div>
 
 <div class="bloco">
+
 <h3>Refrão</h3>
+
 <pre class="cifra">
 Am                 F
   Eu quero estar além de tudo
@@ -112,13 +117,16 @@ C                Em
   Pra ver a face do meu noivo
 Dm7           C        F             G   Am
   E adorar na excelência o Todo Podero - so
-</pre>
+
+  </pre>
+
 </div>
 
 <div class="bloco">
-<h3>Segunda Parte</h3>
-<pre class="cifra">
 
+<h3>Segunda Parte</h3>
+
+<pre class="cifra">
 Am7                                      E/G#
   E quando pela quinta vez a trombeta tocar
                 E7
@@ -183,10 +191,14 @@ Instrumental: Pam Pam
     E
   Aqui não vou ficar, aqui não vou ficar!
 </pre>
+
 </div>
 
+
 <div class="bloco">
-<h3>Refrão</h3>
+
+<h3>Refrão 2x</h3>
+
 <pre class="cifra">
 Am                 F
   Eu quero estar além de tudo
@@ -205,70 +217,119 @@ Dm7           C        F
           G   Am  F  Am
 Todo Podero - so
 </pre>
+
 </div>
 
 </section>
 
 <footer>
-  <p>🎵 Cifra Original</p>
+<p>🎵 Cifra Original</p>
 </footer>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('Cm')">Cm</button>
+<button onclick="mudarTom('C#m')">C#m</button>
+<button onclick="mudarTom('Dm')">Dm</button>
+<button onclick="mudarTom('D#m')">D#m</button>
+<button onclick="mudarTom('Em')">Em</button>
+
+<button onclick="mudarTom('Fm')">Fm</button>
+<button onclick="mudarTom('F#m')">F#m</button>
+<button onclick="mudarTom('Gm')">Gm</button>
+<button onclick="mudarTom('G#m')">G#m</button>
+<button class="tom-original" onclick="mudarTom('Am')">Am</button>
+
+<button onclick="mudarTom('A#m')">A#m</button>
+<button onclick="mudarTom('Bm')">Bm</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
 
 <script>
 
-const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
 
-function atualizarTipoTom() {
-  const tomAtual = document.getElementById("tomAtual").innerText;
-  const tipoTom = document.getElementById("tipoTom");
+function toggleAudio(){
 
-  // Se o tom termina com "m", considera menor
-  if (tomAtual.includes("m") && !tomAtual.includes("maj")) {
-    tipoTom.innerText = "Menor";
-  } else {
-    tipoTom.innerText = "Maior";
-  }
+var audio = document.getElementById("audioEscudo")
+var botao = document.getElementById("btnAudio")
+
+if(audio.paused){
+audio.play()
+botao.innerHTML="⏸️ Pausar Música"
+}else{
+audio.pause()
+botao.innerHTML="▶️ Escutar Música"
 }
 
-// Atualiza o tipo do tom toda vez que transpor
-function transpor(valor) {
-  let tomAtual = document.getElementById("tomAtual");
-  let indiceTom = notas.indexOf(tomAtual.innerText.replace("m","").replace("maj",""));
-  let novoIndiceTom = (indiceTom + valor + 12) % 12;
-
-  let suffix = tomAtual.innerText.replace(/^[A-G](#)?/, ""); // mantém m, 7, etc.
-  tomAtual.innerText = notas[novoIndiceTom] + suffix;
-
-  const cifras = document.querySelectorAll(".cifra");
-
-  cifras.forEach(pre => {
-    let texto = pre.innerText;
-    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
-      let base = acorde.match(/^[A-G](#)?/)[0];
-      let resto = acorde.replace(base,"");
-      let indice = notas.indexOf(base);
-      if(indice === -1) return acorde;
-      let novoIndice = (indice + valor + 12) % 12;
-      let novoAcorde = notas[novoIndice] + resto;
-
-      if(resto.includes("/")){
-        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
-        let indiceBaixo = notas.indexOf(baixo);
-        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
-        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
-      }
-
-      return novoAcorde;
-    });
-
-    pre.innerText = texto;
-  });
-
-  // Atualiza o tipo do tom
-  atualizarTipoTom();
 }
 
-// Atualiza ao carregar a página
-atualizarTipoTom();
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex"
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none"
+}
+
+function mudarTom(novoTom){
+
+let atual=document.getElementById("tomAtual").innerText.replace("m","")
+
+let indiceAtual=notas.indexOf(atual)
+let indiceNovo=notas.indexOf(novoTom.replace("m",""))
+
+let diferenca=indiceNovo-indiceAtual
+
+transpor(diferenca)
+
+document.getElementById("tomAtual").innerText=novoTom
+
+fecharTom()
+
+}
+
+function transpor(valor){
+
+const cifras=document.querySelectorAll(".cifra")
+
+cifras.forEach(pre=>{
+
+let texto=pre.innerText
+
+texto=texto.replace(/[A-G](#)?(m|7|9|sus4|maj7)?/g,function(acorde){
+
+let base=acorde.match(/^[A-G](#)?/)[0]
+let resto=acorde.replace(base,"")
+
+let indice=notas.indexOf(base)
+
+if(indice==-1)return acorde
+
+let novoIndice=(indice+valor+12)%12
+
+return notas[novoIndice]+resto
+
+})
+
+pre.innerText=texto
+
+})
+
+}
 
 </script>
 
