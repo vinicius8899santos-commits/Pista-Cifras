@@ -17,30 +17,22 @@
   <h1>500 Graus</h1>
   <h2>Cassiane</h2>
 
-  <div class="player-audio">
-  <audio id="audioEscudo" src="500Graus.mp3"></audio>
-  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+<div class="player-audio">
+<audio id="audioEscudo">
+<source src="500Graus.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleAudio()" id="btnAudio">
+▶️ Escutar Música
+</button>
 </div>
-  <script>
-    function toggleAudio() {
-  var audio = document.getElementById("audioEscudo");
-  var botao = document.getElementById("btnAudio");
 
-  if (audio.paused) {
-    audio.play();
-    botao.innerHTML = "⏸️ Pausar Música";
-  } else {
-    audio.pause();
-    botao.innerHTML = "▶️ Escutar Música";
-  }
-}
-  </script>
+<div class="controles">
+<span class="tom" onclick="abrirTom()">
+Tom: <strong id="tomAtual">Fm</strong>
+</span>
+</div>
 
-  <div class="controles">
-    <span class="tom">Tom: <strong id="tomAtual">Fm</strong></span>
-    <button class="btn-tom" onclick="transpor(-1)">-</button>
-    <button class="btn-tom" onclick="transpor(1)">+</button>
-  </div>
 </section>
 
 <section class="cifra-container">
@@ -48,45 +40,44 @@
 <div class="bloco">
 <h3>Intro</h3>
 <pre class="cifra">
-C#m  F#m/C#  C#m  F#m/C#  C#m
-Em  G#°  Em  G#°  Em
+Dm  Gm/D  Dm  Gm/D  Dm
+Fm  A°  Fm  A°  Fm
 </pre>
 </div>
 
 <div class="bloco">
 <h3>Primeira Parte</h3>
 <pre class="cifra">
-Em                  
+Fm                  
    Uma chuva diferente
-                  D
+                  D#
 Agora está se formando no céu
-                        Em   
+                        Fm   
 Temporal de benção e poder
-                                     D
+                                     D#
 Um calor tão glorioso invade toda igreja
-                                         Em
+                                         Fm
 Quinhentos graus de puro fogo santo e poder
-</pre>
 </div>
 
 <div class="bloco">
 <h3>Segunda Parte</h3>
 <pre class="cifra">
-                               C   
+                              C#   
 Pra fazer enfermidade desaparecer
-                                D
+                                D#
 Pra fazer o inimigo fugir de você
 
 Uma nuvem de vitória está sobre a igreja
-                                   Em
+                                   Fm
 A previsão de Deus diz que vai chover
-                                           C
+                                           C#
 Vai chover línguas estranhas por todos os lados
-                                D
+                                D#
 E desse temporal quero sair molhado
                                    
 Molhado e revestido por esse poder
-                         Em
+                         Fm
 Agora o impossível vai acontecer
 </pre>
 </div>
@@ -94,42 +85,42 @@ Agora o impossível vai acontecer
 <div class="bloco">
 <h3>Pré-Refrão</h3>
 <pre class="cifra">
-        C
+        C#
 É a promessa de Deus
-        D                      Em
+        D#                     Fm
 O fogo vai descer, por esse poder
-        C
+        C#
 É a promessa de Deus 
-        D                      Em  
-O fogo vai descer, por esse poder 
+        D#                     Fm  
+O fogo vai descer, por esse poder  
 </pre>
 </div>
 
 <div class="bloco">
 <h3>Refrão</h3>
 <pre class="cifra">
-                 D
+                D#
 Já começa acontecer
 
 Debaixo dessa chuva posso contemplar
-            Em
+            Fm
 Aleluia daqui, Glória e aleluia de lá
-                C                     D
+                C#                    D#
 Inundando os irmãos com a benção nas mãos
-                 Em                C  D     Em
+                 Fm                C# D#    Fm
 Vejo milhares de anjos vindo num imenso trovão
 
-                  D
+                  D#
 Desse lado tem poder, desse lado tem vitória
-                      Em
+                      Fm
 Aqui na frente tem irmãos 
 
 Sendo batizados, dando glória
-                    C   
+                    C#   
 Ali no meio o fogo cai
-                                D
+                                D#
 Toda enfermidade não resiste e sai
-                      Em  C  D  Em
+                      Fm  C# D# Fm
 Pelo Santo nome de Jesus
 
 </pre>
@@ -138,19 +129,19 @@ Pelo Santo nome de Jesus
 <div class="bloco">
 <h3>Primeira Parte</h3>
 <pre class="cifra">
-Em                     
+Fm                     
    Uma chuva diferente 
-                D
+                D#
 Agora está inundando esta igreja
-                        Em
+                        Fm
 Temporal de benção e poder
-
+                      
 Um calor tão glorioso 
-                    D
+                    D#
 Está queimando o pecado 
-
+                               
 Destruindo tudo que aflige você 
-                                         Em
+                                         Fm
 Quinhentos graus de puro fogo santo e poder
 </pre>
 </div>
@@ -158,22 +149,22 @@ Quinhentos graus de puro fogo santo e poder
 <div class="bloco">
 <h3>Segunda Parte</h3>
 <pre class="cifra">
-                              C  
+                              C#  
 E já fez enfermidade desaparecer
-                               D
+                               D#
 E já fez o inimigo fugir de você
 
 Uma nuvem de vitória continua na igreja
-                                     Em
+                                     Fm
 A previsão nos diz que ainda vai chover
 
-                                           C
+                                           C#
 Vai chover línguas estranhas por todos os lados
-                                D
+                                D#
 E desse temporal quero sair molhado
-
+                                   
 Molhado e revestido por esse poder
-                         Em
+                         Fm
 Agora o impossível vai acontecer
 
 </pre>
@@ -182,54 +173,54 @@ Agora o impossível vai acontecer
 <div class="bloco">
 <h3>Pré-Refrão</h3>
 <pre class="cifra">
-        C
+        C#
 É a promessa de Deus
-        D                      Em
+        D#                     Fm
 O fogo vai descer, por esse poder
-        C
+        C#
 É a promessa de Deus 
-        D                      Em    
+        D#                     Fm    
 O fogo vai descer, por esse poder
 
-[Solo] C  B7  Em  C  B7  Em
-       D  C  B7  Em
+[Solo] C# C7  Fm  C# C7  Fm
+       D# C# C7  Fm
 </pre>
 </div>
 
 <div class="bloco">
 <h3>Refrão</h3>
-<pre class="cifra">
-                 D
+<pre class="cifra">       
+                 D#
 Já começa acontecer
 
 Debaixo dessa chuva posso contemplar
-            Em
+            Fm
 Aleluia daqui, Glória e aleluia de lá
-                C                     D
+                C#                    D#
 Inundando os irmãos com a benção nas mãos
-                 Em                C  D     Em
+                 Fm                C# D#    Fm
 Vejo milhares de anjos vindo num imenso trovão
 
-                  D
+                  D#
 Desse lado tem poder, desse lado tem vitória
-                      Em
+                      Fm
 Aqui na frente tem irmãos 
 
 Sendo batizados, dando glória
-                    C   
+                    C#   
 Ali no meio o fogo cai
-                                D
+                                D#
 Toda enfermidade não resiste e sai
-                      Em  
+                      Fm  
 Pelo Santo nome de Jesus
 
-                    C   
+                    C#   
 Ali no meio o fogo cai
-                                D
+                                D#
 Toda enfermidade não resiste e sai
-                      Em  
+                      Fm  
 Pelo Santo nome de Jesus
-                                         Em
+                                         Fm
 Quinhentos graus de puro fogo santo e poder
 </pre>
 </div>
@@ -237,65 +228,114 @@ Quinhentos graus de puro fogo santo e poder
 </section>
 
 <footer>
-  <p>🎵 Cifra Original</p>
+<p>🎵 Cifra Original</p>
 </footer>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('Cm')">Cm</button>
+<button onclick="mudarTom('C#m')">C#m</button>
+<button onclick="mudarTom('Dm')">Dm</button>
+<button onclick="mudarTom('D#m')">D#m</button>
+<button onclick="mudarTom('Em')">Em</button>
+<button class="tom-original" onclick="mudarTom('Fm')">Fm</button>
+
+<button onclick="mudarTom('F#m')">F#m</button>
+<button onclick="mudarTom('Gm')">Gm</button>
+<button onclick="mudarTom('G#m')">G#m</button>
+<button onclick="mudarTom('Am')">Am</button>
+
+
+<button onclick="mudarTom('A#m')">A#m</button>
+<button onclick="mudarTom('Bm')">Bm</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
 
 <script>
 
-const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
 
-function atualizarTipoTom() {
-  const tomAtual = document.getElementById("tomAtual").innerText;
-  const tipoTom = document.getElementById("tipoTom");
+function toggleAudio(){
 
-  // Se o tom termina com "m", considera menor
-  if (tomAtual.includes("m") && !tomAtual.includes("maj")) {
-    tipoTom.innerText = "Menor";
-  } else {
-    tipoTom.innerText = "Maior";
-  }
+var audio = document.getElementById("audioEscudo")
+var botao = document.getElementById("btnAudio")
+
+if(audio.paused){
+audio.play()
+botao.innerHTML="⏸️ Pausar Música"
+}else{
+audio.pause()
+botao.innerHTML="▶️ Escutar Música"
 }
 
-// Atualiza o tipo do tom toda vez que transpor
-function transpor(valor) {
-  let tomAtual = document.getElementById("tomAtual");
-  let indiceTom = notas.indexOf(tomAtual.innerText.replace("m","").replace("maj",""));
-  let novoIndiceTom = (indiceTom + valor + 12) % 12;
-
-  let suffix = tomAtual.innerText.replace(/^[A-G](#)?/, ""); // mantém m, 7, etc.
-  tomAtual.innerText = notas[novoIndiceTom] + suffix;
-
-  const cifras = document.querySelectorAll(".cifra");
-
-  cifras.forEach(pre => {
-    let texto = pre.innerText;
-    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
-      let base = acorde.match(/^[A-G](#)?/)[0];
-      let resto = acorde.replace(base,"");
-      let indice = notas.indexOf(base);
-      if(indice === -1) return acorde;
-      let novoIndice = (indice + valor + 12) % 12;
-      let novoAcorde = notas[novoIndice] + resto;
-
-      if(resto.includes("/")){
-        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
-        let indiceBaixo = notas.indexOf(baixo);
-        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
-        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
-      }
-
-      return novoAcorde;
-    });
-
-    pre.innerText = texto;
-  });
-
-  // Atualiza o tipo do tom
-  atualizarTipoTom();
 }
 
-// Atualiza ao carregar a página
-atualizarTipoTom();
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex"
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none"
+}
+
+function mudarTom(novoTom){
+
+let atual=document.getElementById("tomAtual").innerText.replace("m","")
+
+let indiceAtual=notas.indexOf(atual)
+let indiceNovo=notas.indexOf(novoTom.replace("m",""))
+
+let diferenca=indiceNovo-indiceAtual
+
+transpor(diferenca)
+
+document.getElementById("tomAtual").innerText=novoTom
+
+fecharTom()
+
+}
+
+function transpor(valor){
+
+const cifras=document.querySelectorAll(".cifra")
+
+cifras.forEach(pre=>{
+
+let texto=pre.innerText
+
+texto=texto.replace(/[A-G](#)?(m|7|9|sus4|maj7)?/g,function(acorde){
+
+let base=acorde.match(/^[A-G](#)?/)[0]
+let resto=acorde.replace(base,"")
+
+let indice=notas.indexOf(base)
+
+if(indice==-1)return acorde
+
+let novoIndice=(indice+valor+12)%12
+
+return notas[novoIndice]+resto
+
+})
+
+pre.innerText=texto
+
+})
+
+}
 
 </script>
 

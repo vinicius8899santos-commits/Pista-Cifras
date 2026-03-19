@@ -5,6 +5,7 @@
   <title>Pista Cifra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
 </head>
 <body>
 
@@ -18,12 +19,46 @@
 <header>
   <div class="logo-area">
     <span class="menu-btn" onclick="abrirMenu()">☰</span>
-    <span class="logo-text">🎸 Pista Cifra</span>
+    <span class="logo-text">Pista<span class="destaque-logo">Cifra♪</span></span>
   </div>
 
   <input type="text" id="pesquisa" placeholder="Buscar artista ou música..." onkeyup="buscarMusica()">
 
 </header>
+
+<section class="banner">
+  <div class="slides">
+
+    <div class="slide ativo">
+      <img src="Violão.png">
+      <div class="texto-banner">
+        <h2>Pista Cifra</h2>
+        <p>Aprenda louvores com a Escalas</p>
+        <a href="indexEscala.html">Aprender a tocar</a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="Teclado.png">
+      <div class="texto-banner">
+        <h2>Teclado & Harpa</h2>
+        <p>Domine a Escala da Harpa</p>
+        <a href="indexMenuHarpa.html">Começar agora</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTÕES -->
+  <button class="prev" onclick="mudarSlide(-1)">❮</button>
+  <button class="next" onclick="mudarSlide(1)">❯</button>
+
+  <!-- BOLINHAS -->
+  <div class="dots">
+    <span class="dot ativo" onclick="irParaSlide(0)"></span>
+    <span class="dot" onclick="irParaSlide(1)"></span>
+  </div>
+</section>
 
 <!-- MENU LATERAL (Tablet & Celular) -->
 <nav id="menu-lateral">
@@ -272,6 +307,76 @@
   function fecharMenu() {
     document.getElementById("menu-lateral").classList.remove("ativo");
   }
+</script>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let startX = 0;
+let endX = 0;
+
+// Mostrar slide
+function mostrarSlide(index){
+  slides.forEach(s => s.classList.remove("ativo"));
+  dots.forEach(d => d.classList.remove("ativo"));
+
+  slides[index].classList.add("ativo");
+  dots[index].classList.add("ativo");
+}
+
+// Próximo / anterior
+function mudarSlide(n){
+  slideIndex += n;
+
+  if(slideIndex >= slides.length) slideIndex = 0;
+  if(slideIndex < 0) slideIndex = slides.length - 1;
+
+  mostrarSlide(slideIndex);
+}
+
+// Ir direto
+function irParaSlide(n){
+  slideIndex = n;
+  mostrarSlide(slideIndex);
+}
+
+// AUTO PLAY INTELIGENTE
+let autoSlide = setInterval(() => {
+  mudarSlide(1);
+}, 6000);
+
+// Pausar quando usuário interage
+function pausarAuto(){
+  clearInterval(autoSlide);
+}
+
+// ======================
+// SWIPE (ARRASTAR)
+// ======================
+
+const banner = document.querySelector(".banner");
+
+banner.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  pausarAuto();
+});
+
+banner.addEventListener("touchend", (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe(){
+  let diff = startX - endX;
+
+  if(diff > 50){
+    mudarSlide(1); // esquerda
+  } else if(diff < -50){
+    mudarSlide(-1); // direita
+  }
+}
 </script>
 
 </body>
