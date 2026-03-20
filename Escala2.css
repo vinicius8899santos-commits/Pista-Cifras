@@ -1,0 +1,180 @@
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: white;
+}
+
+/* HEADER */
+.topo {
+  background: linear-gradient(90deg, #004d00, #00c853, #1db954);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.btn-voltar {
+  text-decoration: none;
+  background: white;
+  color: #1db954;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* INFO */
+.info-musica {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.controles {
+  margin-top: 15px;
+}
+
+.btn-tom {
+  background: #1db954;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tom strong {
+  color: #00e676;
+}
+
+/* BLOCO */
+.cifra-container {
+  padding: 20px;
+}
+
+.bloco {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.bloco h3 {
+  color: #00e676;
+}
+
+.cifra {
+  font-family: monospace;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.padrao {
+  color: #aaa;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1a1a;
+  color: #aaa;
+}
+
+/* ===== MODAL CENTRALIZADO ===== */
+.modal-tom {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+
+  width: 90%;
+  max-width: 350px;
+
+  background: #121212;
+  padding: 20px;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+/* QUANDO ABRE */
+.modal-tom.ativo {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+/* TÍTULO */
+.modal-tom h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #00e676;
+}
+
+/* GRID */
+.grid-tom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* BOTÕES */
+.btn-tom-grid {
+  background: #1e1e1e;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-tom-grid:hover {
+  background: #2a2a2a;
+  transform: scale(1.05);
+}
+
+.btn-tom-grid.ativo {
+  background: #1db954;
+  box-shadow: 0 0 10px #1db954;
+}
+
+/* BOTÃO FECHAR */
+.btn-fechar {
+  width: 100%;
+  background: #1db954;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-fechar {
+  width: 100%;
+  background: #1db954;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
