@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Cifra - Teu Amor Não Falha</title>
+
+<link rel="stylesheet" href="TeuAmorNaoFalha.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+<header class="topo">
+<div class="logo">🎸 Pista Cifra</div>
+<a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+
+<h1>Teu Amor Não Falha</h1>
+<h2>Nívea Soares</h2>
+
+<div class="player-audio">
+<audio id="audioEscudo">
+<source src="TeuAmorNaoFalha.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleAudio()" id="btnAudio">
+▶️ Escutar Música
+</button>
+</div>
+
+<div class="controles">
+<span class="tom" onclick="abrirTom()">
+Tom: <strong id="tomAtual">Am</strong>
+</span>
+</div>
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+
+<pre class="cifra">
+Am7  F9/C  C  G11/B
+Am7  F9/C  C  G11/B
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Primeira Parte</h3>
+
+<pre class="cifra">
+Am7              F9/C
+    Nada vai me separar
+C                G11/B
+  Mesmo se eu me abalar
+Am7               F9/C  C  G
+    Teu amor não falha
+
+Am7           F9/C
+    Mesmo sem      merecer
+C                       G11/B
+  Tua graça se derrama sobre mim
+Am7               F9/C  C  G
+    Teu amor não falha
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Refrão</h3>
+
+<pre class="cifra">
+F9/C          C/G
+     Tu és o mesmo pra sempre
+G4  Dm7          F9/C
+   Teu amor não muda
+            C/G
+Se o choro dura uma noite
+       G4        Dm7
+A alegria vem pela manhã
+
+F9/C       C/G          G4
+     Se o mar se enfurecer
+        Dm7
+Eu não tenho o que temer
+F9/C            C/G         G4
+     Porque eu sei que me amas
+              F9/C  Am7  G4  C/E
+Teu amor não falha
+
+
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Segunda Parte</h3>
+
+<pre class="cifra">
+Am7                          F9/C
+    Se o vento é forte e profundo, o
+ mar
+C                     G11/B
+  Tua presença vem me amparar
+
+      Am7          F9/C  C     G
+Pois Teu amor não falha,   não
+
+Am7              F9/C
+    Difícil é o caminhar
+C                           G11/B
+  Nunca pensei que eu fosse alcançar
+     Am7          F9/C  C  G
+Mas teu amor não falha
+</pre>
+
+</div>
+
+
+<div class="bloco">
+
+<h3>Terceira Parte</h3>
+
+<pre class="cifra">
+         F9/C
+Tu fazes      que tudo
+    Am7         G4
+Coopere para o meu bem
+         F9/C
+Tu fazes      que tudo
+    Am7         G4
+Coopere para o meu bem
+         F9/C
+Tu fazes      que tudo
+    Am7         G4
+Coopere para o meu bem
+         F9/C
+Tu fazes      que tudo
+    Am7         G4
+Coopere para o meu bem
+</pre>
+
+
+
+<h3>Refrão</h3>
+
+<pre class="cifra">
+F9/C          C/G
+     Tu és o mesmo pra sempre
+G4  Dm7          F9/C
+   Teu amor não muda
+            C/G
+Se o choro dura uma noite
+       G4        Dm7
+A alegria vem pela manhã
+
+F9/C       C/G          G4
+     Se o mar se enfurecer
+        Dm7
+Eu não tenho o que temer
+F9/C            C/G         G4
+     Porque eu sei que me amas
+              F9/C  Am7  G4
+Teu amor não falha
+              F9/C
+Teu amor não falha
+</pre>
+
+<h3>Final</h3>
+Am7  G4  F9/C
+<pre class="cifra">
+
+</pre>
+
+</div>
+
+</section>
+
+<footer>
+<p>🎵 Cifra Original</p>
+</footer>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('Cm')">Cm</button>
+<button onclick="mudarTom('C#m')">C#m</button>
+<button onclick="mudarTom('Dm')">Dm</button>
+<button onclick="mudarTom('D#m')">D#m</button>
+<button onclick="mudarTom('Em')">Em</button>
+
+<button onclick="mudarTom('Fm')">Fm</button>
+<button onclick="mudarTom('F#m')">F#m</button>
+<button onclick="mudarTom('Gm')">Gm</button>
+<button onclick="mudarTom('G#m')">G#m</button>
+<button class="tom-original" onclick="mudarTom('Am')">Am</button>
+
+<button onclick="mudarTom('A#m')">A#m</button>
+<button onclick="mudarTom('Bm')">Bm</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+
+function toggleAudio(){
+
+var audio = document.getElementById("audioEscudo")
+var botao = document.getElementById("btnAudio")
+
+if(audio.paused){
+audio.play()
+botao.innerHTML="⏸️ Pausar Música"
+}else{
+audio.pause()
+botao.innerHTML="▶️ Escutar Música"
+}
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex"
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none"
+}
+
+function mudarTom(novoTom){
+
+let atual=document.getElementById("tomAtual").innerText.replace("m","")
+
+let indiceAtual=notas.indexOf(atual)
+let indiceNovo=notas.indexOf(novoTom.replace("m",""))
+
+let diferenca=indiceNovo-indiceAtual
+
+transpor(diferenca)
+
+document.getElementById("tomAtual").innerText=novoTom
+
+fecharTom()
+
+}
+
+function transpor(valor){
+
+const cifras=document.querySelectorAll(".cifra")
+
+cifras.forEach(pre=>{
+
+let texto=pre.innerText
+
+texto=texto.replace(/[A-G](#)?(m|7|9|sus4|maj7)?/g,function(acorde){
+
+let base=acorde.match(/^[A-G](#)?/)[0]
+let resto=acorde.replace(base,"")
+
+let indice=notas.indexOf(base)
+
+if(indice==-1)return acorde
+
+let novoIndice=(indice+valor+12)%12
+
+return notas[novoIndice]+resto
+
+})
+
+pre.innerText=texto
+
+})
+
+}
+
+</script>
+
+</body>
+</html>

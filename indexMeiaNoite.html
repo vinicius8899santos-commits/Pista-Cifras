@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Cifra - Meia-Noite</title>
+
+<link rel="stylesheet" href="MeiaNoite.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+<header class="topo">
+<div class="logo">🎸 Pista Cifra</div>
+<a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+
+<h1>Meia Noite</h1>
+<h2>Florianópolis House Of Prayer (fhop music)
+</h2>
+
+<div class="player-audio">
+<audio id="audioEscudo">
+<source src="MeiaNoite.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleAudio()" id="btnAudio">
+▶️ Escutar Música
+</button>
+</div>
+
+<div class="controles">
+<span class="tom" onclick="abrirTom()">
+Tom: <strong id="tomAtual">Bm</strong>
+</span>
+</div>
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+
+<h3>Primeira Parte</h3>
+
+<pre class="cifra">
+Bm7
+    Um dia, o Filho do Homem retornará
+
+Com muito poder e glória
+          G  Em
+Ele reinará
+Bm7
+    Mas quanto ao dia e a hora, quem 
+saberá?
+
+Nem os anjos do céu, nem o Filho
+           G
+Somente o Pai
+   Em
+Então vigiai e orai
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Pré-Refrão</h3>
+
+<pre class="cifra">
+ G           A
+Logo se ouvirá um grito
+G            A
+Eis o Noivo sobre os montes
+ G           A
+Logo se ouvirá um grito
+ E7
+Vamos ao Seu encontro
+
+Vamos ao Seu encontro
+
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Refrão</h3>
+
+<pre class="cifra">
+G                     D
+Quando a meia-noite chegar
+                Em7
+É necessário estar
+            G   A
+Com a chama   acesa
+G                   D
+O Filho do Homem virá
+                  Em7
+Será que encontrará
+
+Fé na Terra
+G        A
+  Fé na Terra?
+</pre>
+
+</div>
+
+
+<div class="bloco">
+
+<h3>Segunda Parte</h3>
+
+<pre class="cifra">
+Bm7
+    Um dia, o Filho do Homem retornará
+
+           G
+Ele  reinará
+E7
+Uh, uh, uh
+
+Bm7
+    Mas quanto ao dia e a hora, quem 
+saberá?
+
+Nem os anjos do céu, nem o Filho
+
+           G
+Somente o Pai
+   Em7
+Então vigiai e orai
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Pré-Refrão</h3>
+
+<pre class="cifra">
+G           A
+Logo se ouvirá um grito
+Bm7          D
+Eis o Noivo sobre os montes
+ G           A
+Logo se ouvirá um grito
+E7
+Vamos ao Seu encontro
+
+Vamos ao Seu encontro
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Refrão</h3>
+
+<pre class="cifra">
+ G                     D
+Quando a meia-noite chegar
+                Em7
+É necessário estar
+            G   A
+Com a chama   acesa
+G                   D
+O Filho do Homem virá
+                  Em7
+Será que encontrará
+
+Fé na Terra
+G        A
+  Fé na Terra?
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Ponte</h3>
+
+<pre class="cifra">
+ Em7   D
+Que a chama
+ Em7     Bm7  A
+Não se apague
+ Em7    D
+Que a chama
+ Em7     Bm7  A
+Não se apague
+
+  Em7   D
+Que a chama
+ G       A
+Não se apague
+  Em7   D
+Que a chama
+ G       A
+Não se apague
+
+G
+  Não deixe o óleo acabar
+A
+  Não deixe o óleo acabar
+Bm7
+    Não deixe o óleo acabar
+D
+  Não deixe o óleo acabar
+
+G
+  Não deixe o óleo acabar
+A
+  Não deixe o óleo acabar
+E7
+   Não deixe o óleo acabar
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Refrão Final</h3>
+
+<pre class="cifra">
+                       D
+Quando a meia-noite chegar
+                Em7
+É necessário estar
+            D
+Com a chama   acesa
+G                   D/A
+O Filho do Homem virá
+
+Será que encontrará
+Bm7
+Fé na Terra, fé na Terra?
+</pre>
+
+</div>
+
+</section>
+
+<footer>
+<p>🎵 Cifra Original</p>
+</footer>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('Cm')">Cm</button>
+<button onclick="mudarTom('C#m')">C#m</button>
+<button onclick="mudarTom('Dm')">Dm</button>
+<button onclick="mudarTom('D#m')">D#m</button>
+<button onclick="mudarTom('Em')">Em</button>
+
+<button onclick="mudarTom('Fm')">Fm</button>
+<button onclick="mudarTom('F#m')">F#m</button>
+<button onclick="mudarTom('Gm')">Gm</button>
+<button onclick="mudarTom('G#m')">G#m</button>
+<button onclick="mudarTom('Am')">Am</button>
+
+<button onclick="mudarTom('A#m')">A#m</button>
+<button class="tom-original" onclick="mudarTom('Bm')">Bm</button>
+
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+
+function toggleAudio(){
+
+var audio = document.getElementById("audioEscudo")
+var botao = document.getElementById("btnAudio")
+
+if(audio.paused){
+audio.play()
+botao.innerHTML="⏸️ Pausar Música"
+}else{
+audio.pause()
+botao.innerHTML="▶️ Escutar Música"
+}
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex"
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none"
+}
+
+function mudarTom(novoTom){
+
+let atual=document.getElementById("tomAtual").innerText.replace("m","")
+
+let indiceAtual=notas.indexOf(atual)
+let indiceNovo=notas.indexOf(novoTom.replace("m",""))
+
+let diferenca=indiceNovo-indiceAtual
+
+transpor(diferenca)
+
+document.getElementById("tomAtual").innerText=novoTom
+
+fecharTom()
+
+}
+
+function transpor(valor){
+
+const cifras=document.querySelectorAll(".cifra")
+
+cifras.forEach(pre=>{
+
+let texto=pre.innerText
+
+texto=texto.replace(/[A-G](#)?(m|7|9|sus4|maj7)?/g,function(acorde){
+
+let base=acorde.match(/^[A-G](#)?/)[0]
+let resto=acorde.replace(base,"")
+
+let indice=notas.indexOf(base)
+
+if(indice==-1)return acorde
+
+let novoIndice=(indice+valor+12)%12
+
+return notas[novoIndice]+resto
+
+})
+
+pre.innerText=texto
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
