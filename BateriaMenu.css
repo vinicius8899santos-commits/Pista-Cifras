@@ -1,113 +1,117 @@
-body{
-  margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background:#121212;
-  color:#e5e5e5;
-  text-align:center;
+
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  font-family: 'verdana', sans-serif;
+  background: #121212;
+  color: white;
 }
 
-/* TOPO */
-.topo{
-  margin-top:40px;
-  font-size:50px;
-  font-weight:600;
-  color:#00ff1a;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+/* ================= HEADER ================= */
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+/* AGRUPAR ÍCONE + TEXTO */
+.titulo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  letter-spacing:5px;
+/* TAMANHO DA IMAGEM */
+.titulo img{
+  width: 80px;
 }
 
 
-/* GRID */
-.menu{
-  margin-top:60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-  gap:25px;
-  justify-content:center;
-  max-width:400px;
-  margin-left:auto;
-  margin-right:auto;
+.topo {
+  background: #1a1a1a;
+  padding: 15px 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topo span{
+  font-size: 40px;
+  font-weight: bold;
 }
 
 /* BOTÃO VOLTAR */
 .voltar-container{
-  margin-top:20px;
-}
-
-.btn-voltar{
-  background:#111111;
-  color:#00ff1a;
-  border:1px solid #26ff00;
-  padding:10px 18px;
-  border-radius:10px;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 6px 15px rgba(1, 255, 1, 0.4);
-}
-
-.btn-voltar:hover{
-  transform:translateY(-3px);
-  background:#0a0a0a;
-  box-shadow:0 10px 25px rgba(0,255,0,0.3);
-}
-
-.btn-voltar:active{
-  transform:scale(0.96);
-}
-
-/* BOTÕES */
-.card{
-  background:#111111;
-  color:#37ff00;
-  height:160px;
-  width:100%;
-  border-radius:16px;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  cursor:pointer;
-  transition:0.3s;
-
-  border:1px solid #26ff00;
-
-  box-shadow:0 8px 20px rgba(1, 255, 1, 0.6);
-
-  text-decoration:none; /* remove sublinhado */
-}
-
-/* HOVER */
-.card:hover{
-  transform:translateY(-5px) scale(1.02);
-  border-color:#00ff1a;
-  box-shadow:0 12px 30px rgba(0,255,0,0.3);
-}
-
-/* CLICK */
-.card:active{
-  transform:scale(0.97);
-}
-
-/* TEXTO */
-.card p{
-  font-size:16px;
-  font-weight:500;
-  margin:0;
-  opacity:0.85;
-}
-
-footer{
-  background:#151515;
   text-align:center;
-  padding:20px;
-  margin-top:40px;
-  color:#00ff1a;
+  margin:15px 0;
+}
+
+.btn-voltar {
+  background: #0ccd53;
+  color: #000000;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+}
+
+.btn-voltar:hover {
+  background: #e0e0e0;
+}
+
+/* ================= MENU CARDS ================= */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #22c55e;
+}
+
+
+/* QUANDO CLICA */
+.card:active {
+  box-shadow: 0 0 25px #22c55e;
+  transform: scale(0.97);
+}
+
+.card img{
+  margin-bottom:10px;
+}
+
+.card h1{
+  margin:0;
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1a1a;
+  color: #aaa;
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+  .topo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cifra {
+    font-size: 14px;
+  }
 }

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Cifra - Faraó Ou Deus</title>
+
+<link rel="stylesheet" href="CifraTotal.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+<header class="topo">
+<div class="logo">🎸 Pista Cifra</div>
+<a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="info-musica">
+
+<h1>Faraó Ou Deus</h1>
+<h2>Shirley Carvalhaes</h2>
+
+<div class="player-audio">
+<audio id="audioEscudo">
+<source src="Farao Ou Deus.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleAudio()" id="btnAudio">
+▶️ Escutar Música
+</button>
+</div>
+
+<div class="controles">
+<span class="tom" onclick="abrirTom()">
+Tom: <strong id="tomAtual">Am</strong>
+</span>
+</div>
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+
+<pre class="cifra">
+ Bm  Em  A  Dm  C  F#
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Primeira Parte</h3>
+
+<pre class="cifra">
+Am        G/B             C
+Eis o mar,    atrás vem Faraó
+Dm                   Am
+Por que nos trouxe aqui Moisés
+F         E7
+A este lugar
+Am     G/B          C
+Israel,    assim lamentou então
+Dm               Am
+Moisés a Deus clamou
+F             E7
+E Deus lhe falou
+     Dm                E7
+Por que clamas a mim?
+           Am
+Toca nestas águas
+
+           Dm   E7
+O mar se abriu,    e Israel
+ Am   A7
+passou
+     Dm               E7
+Por que clamas a mim?
+            Am
+Toca nestas águas
+            F    E7
+O mar se abriu,    e Israel
+  Am
+passou
+
+( D  E  Am )
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Refrão</h3>
+
+<pre class="cifra">
+Am                Dm      Am
+Lá vem Faraó, na frente Israel
+      Dm        Am
+Quem chegará primeiro
+E7        Am
+Faraó ou Deus?
+Am                 Dm     Am
+Lá vem Faraó, na frente Israel
+       Dm      F    E7
+Quem chegará primeiro
+         Am
+Faraó ou Deus?
+
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Segunda Parte</h3>
+
+<pre class="cifra">
+G
+Uma coluna de fogo durante a noite
+        C
+Guia Israel
+G
+Os carros de Faraó no meio
+
+Do caminho quebrados
+   C
+Paravam
+   Dm             E7          Am
+Israel prevalecia, na frente seguia
+               Dm   E7
+E a noite pra eles
+             Am
+Tornou-se em dia
+   Dm             E7          Am
+Israel prevalecia, na frente seguia
+              Dm  E7
+E a noite pra eles
+             Am
+Tornou-se em dia
+</pre>
+
+</div>
+
+
+<div class="bloco">
+
+<h3>Refrão</h3>
+
+<pre class="cifra">
+Am            Dm     Am
+Lá vem Faraó, Faraó morreu
+Dm               Am
+Israel chegou primeiro
+E7          Am
+O Senhor é Deus
+Am            Dm     Am
+Lá vem Faraó, Faraó morreu
+                 Dm    E7
+Israel chegou primeiro
+           Am
+O Senhor é Deus
+</pre>
+
+</div>
+
+<div class="bloco">
+
+<h3>Terceira Parte</h3>
+
+<pre class="cifra">
+       E7                  Am
+Canta Miriam: o senhor é Deus
+          E7                Am
+Canta Mocidade: o senhor é Deus
+                  E7
+Os velhos também cantam
+           Am
+O senhor é Deus
+             E7
+Cantam as crianças: o senhor é
+ Am
+Deus
+          E7              Am  F
+Canta Israel: O senhor é Deus
+Dm  Am
+</pre>
+
+</div>
+
+</section>
+
+<footer>
+<p>🎵 Cifra Original</p>
+</footer>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('Cm')">Cm</button>
+<button onclick="mudarTom('C#m')">C#m</button>
+<button onclick="mudarTom('Dm')">Dm</button>
+<button onclick="mudarTom('D#m')">D#m</button>
+<button onclick="mudarTom('Em')">Em</button>
+
+<button onclick="mudarTom('Fm')">Fm</button>
+<button onclick="mudarTom('F#m')">F#m</button>
+<button onclick="mudarTom('Gm')">Gm</button>
+<button onclick="mudarTom('G#m')">G#m</button>
+<button class="tom-original" onclick="mudarTom('Am')">Am</button>
+
+<button onclick="mudarTom('A#m')">A#m</button>
+<button onclick="mudarTom('Bm')">Bm</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+
+function toggleAudio(){
+
+var audio = document.getElementById("audioEscudo")
+var botao = document.getElementById("btnAudio")
+
+if(audio.paused){
+audio.play()
+botao.innerHTML="⏸️ Pausar Música"
+}else{
+audio.pause()
+botao.innerHTML="▶️ Escutar Música"
+}
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex"
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none"
+}
+
+function mudarTom(novoTom){
+
+let atual=document.getElementById("tomAtual").innerText.replace("m","")
+
+let indiceAtual=notas.indexOf(atual)
+let indiceNovo=notas.indexOf(novoTom.replace("m",""))
+
+let diferenca=indiceNovo-indiceAtual
+
+transpor(diferenca)
+
+document.getElementById("tomAtual").innerText=novoTom
+
+fecharTom()
+
+}
+
+function transpor(valor){
+
+const cifras=document.querySelectorAll(".cifra")
+
+cifras.forEach(pre=>{
+
+let texto=pre.innerText
+
+texto=texto.replace(/[A-G](#)?(m|7|9|sus4|maj7)?/g,function(acorde){
+
+let base=acorde.match(/^[A-G](#)?/)[0]
+let resto=acorde.replace(base,"")
+
+let indice=notas.indexOf(base)
+
+if(indice==-1)return acorde
+
+let novoIndice=(indice+valor+12)%12
+
+return notas[novoIndice]+resto
+
+})
+
+pre.innerText=texto
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
