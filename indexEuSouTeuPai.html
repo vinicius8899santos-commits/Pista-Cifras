@@ -345,6 +345,20 @@ Fechar
 </div>
 </div>
 
+<script>
+document.querySelectorAll(".cifra").forEach(pre => {
+
+  let texto = pre.innerHTML;
+
+  // Regex que identifica acordes
+  texto = texto.replace(/\b([A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?)\b/g, function(acorde){
+    return `<span class="acorde">${acorde}</span>`;
+  });
+
+  pre.innerHTML = texto;
+
+});
+</script>
 
 </body>
 </html>
