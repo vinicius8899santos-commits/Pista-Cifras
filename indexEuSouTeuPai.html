@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Eu Sou Teu Pai</title>
+  <link rel="stylesheet" href="CifraTotal.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Eu Sou Teu Pai</h1>
+  <h2>Valesca Mayssa</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Eu Sou Teu Pai.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">B</strong>
+  </span>
+</div>
+
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+C  G  Em
+D  C  D
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+ G            D     Em
+Muitos me conhecem pelo nome
+C               G
+Outros me conhecem
+   D
+Só   de ouvir falar
+G           D             Em
+Alguns são de perto e outros de longe
+ C               G        D
+Com licença, eu vou me apresentar
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+              C
+Sabe quem Eu sou?
+                               G
+Eu sou aquele que te ouviu chorar
+                               D
+Eu sou o único que escolheu ficar
+
+Amigo, confidente
+                  G
+O Pai que sempre sabe
+           Am  G
+Te aconselhar
+           C
+Mais conhecido como Yeshua
+          G
+O pão da vida, Jeová Rafah
+          Am
+Eu sou a luz no fim do túnel
+   D                 G
+A força quando a sua acabar
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+G          C
+E se precisar
+   Em    G
+É só chamar
+             Em
+Não preciso de formalidades
+     D
+Eu quero intimidade
+            C           G
+Eu sou teu Pai é só chamar
+             Em
+Não é sobre religiosidade
+     D
+Eu quero intimidade
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Pré-Refrão</h3>
+<pre class="cifra">
+             C
+Sabe quem Eu sou?
+                               G
+Eu sou aquele que te ouviu chorar
+                               D
+Eu sou o único que escolheu ficar
+
+Amigo, confidente
+                  C
+O Pai que sempre sabe
+     G     Am  G
+Te aconselhar
+           C
+Mais conhecido como Yeshua
+          G
+O pão da vida, Jeová Rafah
+          Am
+Eu sou a luz no fim do túnel
+   D                 G
+A força quando a sua acabar
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+G          C9
+E se precisar
+   Em    G9
+É só chamar
+             Em
+Não preciso de formalidades
+     D
+Eu quero intimidade
+            C           G
+Eu sou teu Pai é só chamar
+             Em
+Não é sobre religiosidade
+     D
+Eu quero intimidade
+
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Ponte</h3>
+<pre class="cifra">
+   C
+Estar contigo em cada dia
+ D
+Na angústia ou na alegria
+ Em               D
+Na felicidade ou na dificuldade
+      C
+Não quero algo de momento
+     D
+Eu quero um relacionamento
+ Em               D
+Com profundidade na intimidade
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+G          C9
+E se precisar
+   Em    G
+É só chamar
+             Em
+Não preciso de formalidades
+     D
+Eu quero intimidade
+            C           G
+Eu sou teu Pai é só chamar
+             Em
+
+Não é sobre religiosidade
+     D
+Eu quero intimidade
+
+            C
+E se  precisar
+   Em    G
+É só chamar
+             Em
+Não preciso de formalidades
+     D
+Eu quero intimidade
+            C           G
+Eu sou teu Pai é só chamar
+             Em
+Não é sobre religiosidade
+     D
+Eu quero intimidade
+
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Final</h3>
+<pre class="cifra">
+           C           G
+Eu sou teu Pai é só chamar
+            C           G
+Eu sou teu Pai é só chamar
+            C           G
+Eu sou teu Pai é só chamar
+            C           G
+Eu sou teu Pai é só chamar
+            C           G
+Eu sou teu Pai é só chamar
+            C           G
+Eu sou teu Pai é só chamar
+             Em
+Não preciso de formalidades
+     D
+Eu quero intimidade
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
+</script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('C')">C</button>
+<button onclick="mudarTom('C#')">C#</button>
+<button onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button onclick="mudarTom('A')">A</button>
+
+<button onclick="mudarTom('A#')">A#</button>
+<button class="tom-original" onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+
+</body>
+</html>
