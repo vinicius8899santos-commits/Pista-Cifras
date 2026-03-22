@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Há Uma Saída</title>
+  <link rel="stylesheet" href="HaUmaSaida.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Há Uma Saída</h1>
+  <h2>Shirley Carvalhaes</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Ha Uma Saida.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">D</strong>
+  </span>
+</div>
+
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+Em  G  D  A  G  D  Bb  A
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+       D
+Bem distante eu te vi, parado a 
+beira do caminho
+     A
+Cabisbaixo e sem direção Se sentindo
+ tão sozinho
+    G
+Coração batendo angustiado em seu 
+peito
+                 D   G  D  D7
+Você vive maus momentos
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Segunda Parte</h3>
+<pre class="cifra">
+ G
+É todo dia a mesma coisa e você se 
+cansou
+               D    G  D
+De tanto sofrimento
+          A                        
+Mas eu declaro que chegou a hora e 
+            Em  G
+Deus vai tirar
+        D   G  D  D7
+Você deste vento
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Terceira Parte</h3>
+<pre class="cifra">
+    G
+Se a fúria do inimigo contra ti se 
+levantar
+      D
+Ele ordena anjos poderosos para te 
+guardar
+      A                          
+Foi ungido. foi remido e separado 
+         Em  D/F#  G
+pra vencer
+      A       D
+E reinar com Ele
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Quarta Parte</h3>
+<pre class="cifra">
+            A
+Deus vai na frente garantindo a 
+vitória para o filho seu
+                Bm                 
+Quebrando as correntes, sujeitando 
+                        G
+o inimigo porque Ele é Deus
+                 D
+Faz sair água da rocha
+                          A
+Com este Deus não há quem possa
+                    D   ( G  D )
+Não há como o nosso Deus
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Quinta Parte</h3>
+<pre class="cifra">
+      A
+Lá no Egito trouxe as pragas e 
+humilhou o tal de Faraó
+              Bm                
+Exaltou a Israel e fez saber que 
+                        G
+aquele povo não estava só
+                  D                
+Faz a morte virar vida, pra tudo 
+        A
+tem uma saída
+    A7                D
+Não há Deus como este Deus
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+  A                              
+Elohin, El Shaday, Adonai, Adore o 
+     D    G
+nome Dele
+                D
+Ele é Deus verdadeiro
+                A               
+Ele te amou primeiro, te levanta 
+         D
+deste chão
+    A                              
+Elohin, el Shaday, Adonai, adore o 
+     D    G
+nome DELE
+                  D                
+Faz a morte virar vida, pra tudo 
+        A
+tem uma saída
+       G     A    D
+Faz de ti um campeão
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Final</h3>
+<pre class="cifra">
+G  D/F#  Em         D
+     Faz de ti um campeão
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
+</script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('C')">C</button>
+<button onclick="mudarTom('C#')">C#</button>
+<button class="tom-original" onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button onclick="mudarTom('A')">A</button>
+
+<button onclick="mudarTom('A#')">A#</button>
+<button onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+
+</body>
+</html>

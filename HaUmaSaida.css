@@ -1,0 +1,198 @@
+.modalTom{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.janelaTom{
+background:#1b1b1b;
+padding:25px;
+border-radius:20px;
+width:320px;
+text-align:center;
+}
+
+.gradeTom{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+margin-top:15px;
+}
+
+.gradeTom button{
+background:#2a2a2a;
+border:none;
+color:white;
+padding:10px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+}
+
+.gradeTom button:hover{
+background:#22c55e;
+}
+
+.fecharTom{
+margin-top:20px;
+width:100%;
+background:#22c55e;
+border:none;
+padding:12px;
+border-radius:12px;
+font-size:16px;
+color:white;
+cursor:pointer;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: white;
+}
+
+/* HEADER */
+.topo {
+  background: linear-gradient(90deg, #004d00, #00c853, #1db954);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-voltar {
+  text-decoration: none;
+  background: white;
+  color: #1db954;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn-voltar:hover {
+  background: #e0e0e0;
+}
+
+/* INFO */
+.info-musica {
+  padding: 30px;
+  text-align: center;
+}
+
+.info-musica h1 {
+  margin-bottom: 5px;
+}
+
+.info-musica h2 {
+  margin-top: 0;
+  color: #aaa;
+}
+
+/* PLAYER */
+.player-audio {
+  margin-top: 20px;
+}
+
+#btnAudio {
+  background: #1db954;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btnAudio:hover {
+  background: #17a44b;
+}
+
+/* CONTROLES TOM */
+.controles {
+  margin-top: 20px;
+}
+
+.btn-tom {
+  background: #1db954;
+  border: none;
+  padding: 8px 15px;
+  margin: 0 5px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-tom:hover {
+  background: #17a44b;
+}
+
+.tom strong {
+  color: #00e676;
+}
+
+/* CIFRA */
+.cifra-container {
+  padding: 20px 30px 40px 30px;
+}
+
+.bloco {
+  background: #1e1e1e;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.bloco h3 {
+  margin-top: 0;
+  color: #00e676;
+}
+
+.cifra {
+  font-family: monospace;
+  white-space: pre-wrap;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1a1a;
+  color: #aaa;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .topo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cifra {
+    font-size: 14px;
+  }
+}
+
+.tom-original{
+background:#22c55e !important;
+color:white;
+font-weight:bold;
+box-shadow:0 0 10px #22c55e;
+}

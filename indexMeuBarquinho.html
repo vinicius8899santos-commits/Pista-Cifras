@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Meu Barquinho</title>
+  <link rel="stylesheet" href="MeuBarquinho.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Meu Barquinho</h1>
+  <h2>Giselli Cristina</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Meu Barquinho.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">G</strong>
+  </span>
+</div>
+
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Lovor</h3>
+<pre class="cifra">
+                         G                    
+O vento balançou, meu barco em alto
+   D
+ mar
+              Em                 C
+O medo me cercou, e quis me afogar
+                 G              
+Mas então eu clamei, ao filho de 
+    D
+Davi
+           Em                     C
+Ele me escutou, por isso estou aqui
+
+                 Am        
+O vento Ele acalmou, o medo 
+          D
+repreendeu
+                 F               D
+Quando Ele ordenou, o mar obedeceu
+
+G                   D            
+   Não temo mais o mar, pois 
+             Em
+firme está minha fé
+                   C           
+No meu barquinho está, Jesus de 
+      G
+Nazaré
+                  D                
+Se o medo me cercar, ou se o vento 
+    Em
+soprar
+                  C         
+Seu nome eu clamarei, Ele me 
+        G
+guardará
+
+G                   D
+   Não temo mais o mar, pois firme 
+está minha fé
+                   C           
+No meu barquinho está, Jesus de 
+      G
+Nazaré
+                  D                
+Se o medo me cercar, ou se o vento 
+    Em
+soprar
+                  C         
+Seu nome eu clamarei, Ele me 
+        G
+socorrerá
+
+              G                    
+O vento balançou, meu barco em alto
+   D
+ mar
+              Em                 C
+O medo me cercou, e quis me afogar
+                 G              
+Mas então eu clamei, ao filho de 
+    D
+Davi
+           Em                     C
+Ele me escutou, por isso estou aqui
+
+                 Am        
+O vento Ele acalmou, o medo 
+          D
+repreendeu
+                 F               D
+Quando Ele ordenou, o mar obedeceu
+
+G                   D            
+   Não temo mais o mar, pois 
+             Em
+firme está minha fé
+                   C           
+No meu barquinho está, Jesus de 
+      G
+Nazaré
+                  D                
+Se o medo me cercar, ou se o vento 
+    Em
+soprar
+                  C         
+Seu nome eu clamarei, Ele me 
+        G
+guardará
+
+G                   D
+   Não temo mais o mar, pois firme 
+está minha fé
+                   C           
+No meu barquinho está, Jesus de 
+      G
+Nazaré
+                  D                
+Se o medo me cercar, ou se o vento 
+    Em
+soprar
+                  C         
+Seu nome eu clamarei, Ele me 
+        G
+socorrerá
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
+</script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('C')">C</button>
+<button onclick="mudarTom('C#')">C#</button>
+<button onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button class="tom-original" onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button onclick="mudarTom('A')">A</button>
+
+<button onclick="mudarTom('A#')">A#</button>
+<button onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+
+</body>
+</html>

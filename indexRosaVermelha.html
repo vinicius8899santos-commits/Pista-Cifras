@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Rosa Vermelha</title>
+  <link rel="stylesheet" href="RosaVermelha.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Rosa Vermelha</h1>
+  <h2>Luiz de Carvalho</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Rosa Vermelha.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">D</strong>
+  </span>
+</div>
+
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+G  Gm  D  Bm  Em  A  D  A
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Lovor</h3>
+<pre class="cifra">
+ D                    Bm          
+Olhando este mundo Ele viu grande 
+       F#m
+multidão
+           G  Gm                 
+Andando sozinho     sem nada na 
+D  A7
+mão
+  D                   Bm          
+Sua vida foi rosa vermelha cravada
+     F#m
+ na cruz
+                  G   Gm    
+Quem passou por Ele    sentiu 
+           D   D7
+compaixão
+
+  G                     A7 
+A rosa murchando e sangrando 
+              F#m7   Bm7
+esvaindo em dor
+
+             Em7   A7           D
+Perdendo a cor,    sem respiração
+   D7
+
+ G                     A7         
+Mas o seu perfume se apega à mão 
+        F#m7  Bm7
+que a esmagou
+             Em7    A7         
+E quem a feriu        conseguiu  
+       D         A7
+perdão
+
+ D                  Bm            
+Agora seu sangue vertendo caindo 
+   F#m
+no chão
+                 G     Gm     
+Três dias morrendo,     oh que  
+        D    A7
+solidão
+ D                    Bm          
+No terceiro dia o mundo encheu-se 
+        F#m
+de flores
+                G    Gm           
+E a rosa vermelha    de novo 
+D  D7
+brotou
+
+  G                  A7           
+Jesus é o lírio dos vales a Rosa 
+   F#m7  Bm7
+de Sarom
+               Em7 A7             
+Até seus espinhos     são marcas 
+   D    D7
+de amor
+ G                    A7          
+Agora Ele vive a plantar um grande
+      F#m7  Bm7
+ jardim
+               Em7   A7           D
+E Se você quiser     será uma flor
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
+</script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('C')">C</button>
+<button onclick="mudarTom('C#')">C#</button>
+<button class="tom-original" onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button onclick="mudarTom('A')">A</button>
+
+<button onclick="mudarTom('A#')">A#</button>
+<button onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+
+</body>
+</html>

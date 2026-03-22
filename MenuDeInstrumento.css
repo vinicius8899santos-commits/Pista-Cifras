@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: white;
+}
+
+/* HEADER */
+.topo {
+  background: linear-gradient(90deg, #004d00, #00c853, #1db954);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-voltar {
+  text-decoration: none;
+  background: white;
+  color: #1db954;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn-voltar:hover {
+  background: #e0e0e0;
+}
+
+/* SEÇÃO */
+.destaque {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+/* CARDS */
+.lista-musicas {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.musica{
+  background:linear-gradient(145deg,#1a1a1a,#222);
+  padding:20px;
+  border-radius:15px;
+  width:240px;
+  transition:0.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.musica:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 15px #1db954;
+}
+
+.musica p{
+  color:#aaa;
+  margin-bottom:15px;
+}
+
+.musica a{
+  text-decoration:none;
+  background:#1db954;
+  padding:8px 15px;
+  border-radius:20px;
+  color:white;
+  font-weight:bold;
+  box-shadow:0 0 10px #1db954;
+  transition:0.3s;
+}
+
+.musica a:hover{
+  box-shadow:0 0 20px #1db954;
+}
+
+/* FOOTER */
+footer {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #aaa;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .topo {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

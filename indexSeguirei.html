@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Seguirei</title>
+  <link rel="stylesheet" href="Seguirei.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Seguirei</h1>
+  <h2>Rose Nascimento</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Seguirei.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">A</strong>
+  </span>
+</div>
+
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Lovor</h3>
+<pre class="cifra">
+A
+Elevarei meus olhos
+         C#m
+Para os montes olharei
+       Bm         E
+Do Senhor virá o meu socorro
+      A        C#m
+Me esconderei, nas asas de Deus
+      Bm                E         
+Seu amor é grande, sempre acolhe 
+       F°
+os seus
+        F#m      F#m7M
+Quando mal me tocar
+    F#m7          F#m6        D   
+Ao meu Deus eu clamarei e a ajuda 
+ E   A
+do céu vem
+
+       F#m           F#m7M
+Nesta vida a luta é grande
+        F#m7        F#m6
+Mas eu não vou desistir
+ Bm           E        A    E
+Sei que vou chegar até o fim
+
+      A         E/G#    F#m
+Seguirei, eu levarei a minha cruz
+    E       D
+Se no caminho tropeçar
+   A/C#     Bm         E
+Deus vai me ajudar a me erguer
+     A       E/G#                F#m
+Ele tem nas mãos a força pra vencer
+         E               D
+Não vou temer, vou caminhar
+      E         A
+Deus vai me ajudar
+
+( E  D )
+
+              A                 
+Todos os teus inimigos envergonhados
+C#m
+ serão
+   Bm                E
+Quando lá da glória Deus te exaltar
+     A                  C#m
+Não dê ouvidos, não, ao vil tentador
+     Bm                E       F°
+Que faz de tudo pra você parar
+
+   F#m             F#m7M      
+Levante agora tua voz clame 
+F#m7       F#m6
+forte ao Senhor
+     Bm    E      A  E/G#      
+Ele pode   te livrar      Ele 
+F#m       F#m7M
+tem a solução
+     F#m7        F#m6  Bm7       
+O domínio e o poder   falta pouco
+   E          A  E
+ pra você vencer
+
+      A         E/G#    F#m
+Seguirei, eu levarei a minha cruz
+    E       D
+Se no caminho tropeçar
+   A/C#     Bm         E
+Deus vai me ajudar a me erguer
+     A       E/G#                F#m
+Ele tem nas mãos a força pra vencer
+         E               D
+Não vou temer, vou caminhar
+      E           ( D  A/C#  Bm  
+Deus vai me ajudar
+E  A )
+</pre>
+</div>
+
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
+</script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('C')">C</button>
+<button onclick="mudarTom('C#')">C#</button>
+<button onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button class="tom-original" onclick="mudarTom('A')">A</button>
+
+
+<button onclick="mudarTom('A#')">A#</button>
+<button onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+
+</body>
+</html>
