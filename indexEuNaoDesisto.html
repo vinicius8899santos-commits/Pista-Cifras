@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Music</title>
+  <link rel="stylesheet" href="CifraTotal.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Eu Não Desisto</h1>
+  <h2>Jessé Aguia</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Eu Não Desisto.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">C#</strong>
+  </span>
+</div>
+
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+C# G# A#m F#
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Primeira Parte</h3>
+<pre class="cifra">
+                    C#
+Foi em questão de segundos
+                                         G#
+Eu fui atingido em sequência eu cai no chão
+                               A#m
+De cara logo percebi que o meu    coração
+                        F#
+Entrou em desespero e acelerou
+
+                C#
+Eu tinha que levantar
+                                         G#
+Mas eu tava ferido e sem forças para continuar
+                                     A#m
+Então um lugar bem mas seguro eu fui    procurar
+
+Dei três passos mas com muita dor
+       F#
+Eu voltei pro chão
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Segunda Parte</h3>
+<pre class="cifra">
+                 G
+Mas em meio a batalha
+
+Um homem apareceu e deitou do meu lado
+              D
+Agitou o meu corpo
+
+E notou que eu estava muito machucado
+
+            Em
+Eu tava abatido
+
+Sangrando com sede com fome com medo
+                     C
+E ele segurou minha mão ficou bem do meu lado
+                                         G
+O tempo inteiro e a cada suspiro que eu dava
+
+Ele via e falava não é pra dormir
+                   D
+Me deu um pouco de água um pedaço de pão
+
+Pra poder prosseguir
+
+                       Em
+Me disse com tanta firmeza ninguém vai morrer
+
+Ninguém vai desistir
+                     C
+E ele olhou nos meus olhos com tanto amor
+
+E me disse assim
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+                G                 D
+É que eu não desisto de você meu filho
+             Em
+E se for preciso
+                                           C
+Eu entro no meio da guerra só para te lembrar
+             G                 D
+Que nunca desisto de você meu filho
+             Em
+E se for preciso
+                                          C
+Eu entro no meio da guerra só para te ajudar
+     C
+Se apoie em meus ombros
+                       G
+Não solta nós vamos lutar
+
+( G  D  Em  C )
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Segunda Parte</h3>
+<pre class="cifra">
+                 G
+Mas em meio a batalha
+
+Um homem apareceu e deitou do meu lado
+              D
+Agitou o meu corpo
+
+E notou que eu estava muito machucado
+
+            Em
+Eu tava abatido
+
+Sangrando com sede com fome com medo
+                     C
+E ele segurou minha mão ficou bem do meu lado
+                                         G
+O tempo inteiro e a cada suspiro que eu dava
+
+Ele via e falava não é pra dormir
+                   D
+Me deu um pouco de água um pedaço de pão
+
+Pra poder prosseguir
+
+                       Em
+Me disse com tanta firmeza ninguém vai morrer
+
+Ninguém vai desistir
+                     C
+E ele olhou nos meus olhos com tanto amor
+
+E me disse assim
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+                G                 D
+É que eu não desisto de você meu filho
+             Em
+E se for preciso
+                                           C
+Eu entro no meio da guerra só para te lembrar
+             G                 D
+Que nunca desisto de você meu filho
+             Em
+E se for preciso
+                                          C
+Eu entro no meio da guerra só para te ajudar
+     C
+Se apoie em meus ombros
+                       G
+Não solta nós vamos lutar
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão Final </h3>
+<pre class="cifra">
+D
+  Se apoie em meus ombros
+               Em
+Não solta nós vamos lutar
+
+Nós vamos lutar
+     C
+Nós vamos lutar
+
+Se apoie em meus ombros
+                    G
+Não solta nós vamos   lutar
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+pintarCifras(); // 👈 ESSENCIAL
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
+</script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('C')">C</button>
+<button class="tom-original" onclick="mudarTom('C#')">C#</button>
+<button onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button onclick="mudarTom('A')">A</button>
+
+<button onclick="mudarTom('A#')">A#</button>
+<button onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cifra - Music</title>
+  <link rel="stylesheet" href="CifraTotal.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🎸 Pista Cifra</div>
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+</header>
+</section>
+<section class="info-musica">
+  <h1>Filho Eu Estou Aqui</h1>
+  <h2>Valquíria Oliveira</h2>
+
+  <div class="player-audio">
+  <audio id="audioEscudo" src="Filho Eu Estou Aqui.mp3"></audio>
+  <button onclick="toggleAudio()" id="btnAudio">▶️ Escutar Música</button>
+</div>
+  <script>
+    function toggleAudio() {
+  var audio = document.getElementById("audioEscudo");
+  var botao = document.getElementById("btnAudio");
+
+  if (audio.paused) {
+    audio.play();
+    botao.innerHTML = "⏸️ Pausar Música";
+  } else {
+    audio.pause();
+    botao.innerHTML = "▶️ Escutar Música";
+  }
+}
+  </script>
+  <div class="controles">
+  <span class="tom" onclick="abrirTom()">
+    Tom: <strong id="tomAtual">G</strong>
+  </span>
+</div>
+
+
+</section>
+
+<section class="cifra-container">
+
+<div class="bloco">
+<h3>Intro</h3>
+<pre class="cifra">
+C G F# Em Am D G D
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Estrofe</h3>
+<pre class="cifra">
+
+                  G                               
+Com a alma angustiada, com o coração
+ferido e sem
+              C
+forças pra lutar.
+                  D     
+Com o semblante caído, coração
+            C        D 
+ entristecido sem forças 
+         G   D
+pra caminhar.
+                G
+Foi ai que de repente ele veio de
+    G7           G7/B
+mansinho, disse vim
+          C
+pra ti ajudar.
+                      G  
+Sou teu Deus sou teu amigo, não tema
+         D  
+estou contigo 
+                    G   C D G
+vitória vim te entregar.
+
+</pre>
+</div>
+
+
+<div class="bloco">
+<h3>Refrão</h3>
+<pre class="cifra">
+      D         G                  D
+Filho eu estou aqui! Filho não te abandonei.
+                 G/B C      
+Quer nas horas de alegria ou nas
+          Am  
+horas de agonia filho 
+            G   D
+contigo estarei.
+
+                G   G7     G7/B
+Filho eu estou aqui!  Meu amor filho
+      C
+eu te dei!
+                     G     
+Como prova que eu te amo, filho na
+            D
+ cruz do calvário 
+                   G   G/B
+sangue por ti derramei.
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Base Intro:</h3>
+<pre class="cifra">
+C G F# Em Am D G D
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Estrofe 2</h3>
+<pre class="cifra">
+Se tu estas abatido saibas que Deus é contigo ele não 
+         C
+te abandonou.
+                 D
+Se sentis angustiado Jesus estas do
+      
+ seu lado, 
+      D          G   C D
+compreende a sua dor.
+                    G        
+Quando estas em aflição ele estende a
+      G7
+ suas mãos para
+  G7/B     C
+vitória te dar.
+                 G            
+E nas horas de Perigo ele diz estou
+  D
+contigo, eu vim pra
+       G   C D G
+ te ajudar.
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Refrão 2</h3>
+<pre class="cifra">
+      D         G                  D
+Filho eu estou aqui! Filho não te abandonei.
+                 G/B C      
+Quer nas horas de alegria ou nas
+          Am  
+horas de agonia filho 
+            G   D
+contigo estarei.
+
+                G   G7     G7/B
+Filho eu estou aqui!  Meu amor filho
+      C
+eu te dei!
+                     G     
+Como prova que eu te amo, filho na
+            D
+ cruz do calvário 
+                   G   G/B
+sangue por ti derramei.
+</pre>
+</div>
+
+<div class="bloco">
+<h3>Final</h3>
+<pre class="cifra">
+C                    G
+Como prova que eu te amo, filho na
+            D
+ cruz do calvário
+
+                   C   G   Am C D  G
+sangue por ti derramei.
+C G4 G
+</pre>
+</div>
+
+</section>
+
+<footer>
+  <p>🎵 Cifra Original</p>
+</footer>
+
+<script>
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function transpor(valor){
+
+  let tomAtual = document.getElementById("tomAtual");
+  let indiceTom = notas.indexOf(tomAtual.innerText);
+  let novoIndiceTom = (indiceTom + valor + 12) % 12;
+  tomAtual.innerText = notas[novoIndiceTom];
+
+  const cifras = document.querySelectorAll(".cifra");
+
+  cifras.forEach(pre => {
+
+    let texto = pre.innerText;
+
+    texto = texto.replace(/[A-G](#)?(m|2|7|9|maj7|sus4)?(\/[A-G](#)?)?/g, function(acorde){
+
+      let base = acorde.match(/^[A-G](#)?/)[0];
+      let resto = acorde.replace(base,"");
+
+      let indice = notas.indexOf(base);
+      if(indice === -1) return acorde;
+
+      let novoIndice = (indice + valor + 12) % 12;
+      let novoAcorde = notas[novoIndice] + resto;
+
+      if(resto.includes("/")){
+        let baixo = resto.match(/\/[A-G](#)?/)[0].replace("/","");
+        let indiceBaixo = notas.indexOf(baixo);
+        let novoBaixo = notas[(indiceBaixo + valor + 12) % 12];
+        novoAcorde = notas[novoIndice] + resto.replace(baixo,novoBaixo);
+      }
+
+      return novoAcorde;
+    });
+
+    pre.innerText = texto;
+  });
+
+pintarCifras(); // 👈 ESSENCIAL
+}
+
+function abrirTom(){
+document.getElementById("modalTom").style.display="flex";
+}
+
+function fecharTom(){
+document.getElementById("modalTom").style.display="none";
+}
+
+function mudarTom(novoTom){
+
+let atual = document.getElementById("tomAtual").innerText;
+
+let indiceAtual = notas.indexOf(atual);
+let indiceNovo = notas.indexOf(novoTom);
+
+let diferenca = indiceNovo - indiceAtual;
+
+transpor(diferenca);
+
+fecharTom();
+}
+
+</script>
+
+<div class="modalTom" id="modalTom">
+
+<div class="janelaTom">
+
+<h2>Mudar Tom</h2>
+
+<div class="gradeTom">
+
+<button onclick="mudarTom('C')">C</button>
+<button onclick="mudarTom('C#')">C#</button>
+<button onclick="mudarTom('D')">D</button>
+<button onclick="mudarTom('D#')">D#</button>
+<button onclick="mudarTom('E')">E</button>
+
+<button onclick="mudarTom('F')">F</button>
+<button onclick="mudarTom('F#')">F#</button>
+<button class="tom-original" onclick="mudarTom('G')">G</button>
+<button onclick="mudarTom('G#')">G#</button>
+<button onclick="mudarTom('A')">A</button>
+
+<button onclick="mudarTom('A#')">A#</button>
+<button onclick="mudarTom('B')">B</button>
+
+</div>
+
+<button class="fecharTom" onclick="fecharTom()">
+Fechar
+</button>
+
+</div>
+</div>
+
+
+</body>
+</html>

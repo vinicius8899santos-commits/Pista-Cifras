@@ -197,7 +197,26 @@ font-weight:bold;
 box-shadow:0 0 10px #22c55e;
 }
 
-.acorde{
-  color: #32c367;
+.cifra {
+  color: #e5e5e5; /* letra normal */
+}
+
+.cifra .acorde {
+  color: #22c55e; /* verde só nos acordes */
   font-weight: bold;
+}
+
+
+.acorde {
+  color: #00ff1a;
+  font-weight: bold;
+}
+
+.acorde {
+  color: #00ff1a;
+  font-weight: bold;
+}
+
+.linha-cifra {
+  line-height: 1.8;
 }
